@@ -3,3 +3,23 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.d-flex {
+    display: flex;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.justify-between{
+    justify-content: space-between;
+}
+
+.fd-column{
+    flex-direction: column;
+}
+
+.fa-center{
+    align-items: center;
+}
