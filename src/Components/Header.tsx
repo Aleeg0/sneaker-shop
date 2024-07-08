@@ -6,28 +6,30 @@ import logo from "../assets/logo.svg";
 
 const Header = () => {
     return (
-        <header className="shopHeader">
-            <div className="shopHeader__info">
-                <img src={logo} alt="Logo"/>
-                <div className="shopHeader__titles">
-                    <h2>React Sneakers</h2>
-                    <p>Best sneakers shop</p>
+        <header>
+            <div className="shopHeader">
+                <div className="shopHeader__info">
+                    <img src={logo} alt="Logo"/>
+                    <div className="shopHeader__titles">
+                        <h2>React Sneakers</h2>
+                        <p>Best sneakers shop</p>
+                    </div>
                 </div>
+                <ul>
+                    <li>
+                        <CartLogo/>
+                        <p>500 USD</p>
+                    </li>
+                    <li>
+                        <FavoriteLogo/>
+                        <p>Favorite</p>
+                    </li>
+                    <li>
+                        <ProfileLogo/>
+                        <p>Profile</p>
+                    </li>
+                </ul>
             </div>
-            <ul>
-                <li>
-                    <CartLogo/>
-                    <p>500 USD</p>
-                </li>
-                <li>
-                    <FavoriteLogo/>
-                    <p>Favorite</p>
-                </li>
-                <li>
-                    <ProfileLogo/>
-                    <p>Profile</p>
-                </li>
-            </ul>
             <hr/>
         </header>
     );

@@ -2,6 +2,7 @@
 
 * {
     @include clear();
+    font-family: Inter, sans-serif;
 }
 
 body{
@@ -9,13 +10,25 @@ body{
 }
 
 .wrapper{
-    width: 1080px;
+    width: calc(100% - 60px);
     margin: 30px;
-
     background: #FFFFFF;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
     border-radius: 20px;
+}
 
+main{
+    padding: 0 60px;
+
+    h1{
+        margin-bottom: 40px;
+    }
+}
+
+.content{
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
 }
 
 @import "styles/Header";
+@import "styles/SneakerCard";
