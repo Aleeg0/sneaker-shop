@@ -1,0 +1,21 @@
+@import "styles/mixins";
+
+* {
+    @include clear();
+}
+
+body{
+    background-color: #E7F6FF;
+}
+
+.wrapper{
+    width: 1080px;
+    margin: 30px;
+
+    background: #FFFFFF;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+
+}
+
+@import "styles/Header";

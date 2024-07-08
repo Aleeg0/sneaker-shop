@@ -1,0 +1,34 @@
+.shopHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    &__info {
+        display: flex;
+        padding: 10px;
+        img{
+            margin-right: 10px;
+        }
+    }
+
+    &__titles {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        column-gap: 32px;
+        li{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 9px;
+        }
+    }
+
+}
