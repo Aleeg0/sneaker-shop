@@ -1,0 +1,81 @@
+.card{
+    width: 210px;
+    height: 260px;
+    background: #FFFFFF;
+    border: 1px solid #F3F3F3;
+    border-radius: 40px;
+    position: relative;
+    padding: 20px 29px 34px 30px;
+
+    img{
+        width: 133px;
+        margin-bottom: 14px;
+    }
+
+    p,
+    b{
+        font-size: 14px;
+    }
+
+    p {
+        margin-bottom: 14px;
+    }
+
+    span{
+        font-size: 11px;
+    }
+
+    button{
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .favorite{
+        position: absolute;
+        border-radius: 7px;
+
+        svg{
+            transition: all 0.5s ease-in-out;
+            fill: #FFFFFF;
+            rect{
+                fill: #FFFFFF;
+            }
+
+            &:hover{
+                fill: #fdb7b7;
+                rect{
+                    fill: #FEF0F0;
+                    stroke: #FFFFFF;
+                }
+                path{
+                    stroke: none;
+                }
+            }
+        }
+
+        &.active{
+            svg{
+
+                fill: #FF8585;
+                rect{
+                    fill: #FEF0F0;
+                    stroke: #FFFFFF;
+                }
+                path{
+                    stroke: none;
+                }
+            }
+        }
+    }
+
+
+
+    .cartAction {
+
+    }
+
+}
