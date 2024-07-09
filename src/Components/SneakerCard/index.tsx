@@ -2,16 +2,24 @@ import React, {FC} from 'react';
 import {ReactComponent as FavoriteBtn} from "../../assets/favoriteBtn.svg"
 import {ReactComponent as CartAddBtn} from "../../assets/mainAddBtn.svg";
 import {ReactComponent as CartRemoveBtn} from "../../assets/mainRemoveBtn.svg"
+import Sneaker from "../../Models/Sneaker";
 
 interface SneakerCardProps {
+    id:number,
     name: string,
     price: number,
-    imgURL: string
+    imgURL: string,
+    onAction: (sneaker: Sneaker) => void,
 }
 
-const SneakerCard: FC<SneakerCardProps> = ({name,price,imgURL}) => {
+const SneakerCard: FC<SneakerCardProps> = ({id,name,price,imgURL,onAction}) => {
+    const [isAdded,setIsAdded] = React.useState(false);
     const [isFavorite, setIsFavorite] = React.useState(false);
-    const [isAdded, setIsAdded] = React.useState(false);
+
+    const onClickAction = () => {
+        onAction({id,name,price,imgURL});
+        setIsAdded(!isAdded);
+    }
 
     return (
         <div className="card">
@@ -32,7 +40,7 @@ const SneakerCard: FC<SneakerCardProps> = ({name,price,imgURL}) => {
                 <button
                     type="button"
                     className={`cartAction ${isAdded ? "removeBtn": "addBtn"}`}
-                    onClick={() => setIsAdded(!isAdded)}
+                    onClick={onClickAction}
                 >
                     {isAdded ? <CartRemoveBtn/> : <CartAddBtn/>}
                 </button>
