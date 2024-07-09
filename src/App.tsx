@@ -4,13 +4,14 @@ import SneakerCard from "./Components/SneakerCard";
 import {ReactComponent as FindLogo} from "./assets/finder.svg";
 import Sneaker from "./Models/Sneaker";
 import "./index.css"
+import Cart from "./Components/Cart";
 
 function App() {
     const [sneakersList,setSnieakersList] = React.useState<Sneaker[]>([]);
 
     return (
         <div className="wrapper">
-
+            <Cart/>
             <Header/>
             <main>
                 <div className="contentInfo">

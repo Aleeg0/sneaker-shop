@@ -1,8 +1,8 @@
 import React from 'react';
-import img from "../assets/images/image1.jpg"
-import {ReactComponent as FavoriteBtn} from "../assets/favoriteBtn.svg"
-import {ReactComponent as CartAddBtn} from "../assets/mainAddBtn.svg";
-import {ReactComponent as CartRemoveBtn} from "../assets/mainRemoveBtn.svg"
+import img from "../../assets/images/image1.jpg"
+import {ReactComponent as FavoriteBtn} from "../../assets/favoriteBtn.svg"
+import {ReactComponent as CartAddBtn} from "../../assets/mainAddBtn.svg";
+import {ReactComponent as CartRemoveBtn} from "../../assets/mainRemoveBtn.svg"
 
 const SneakerCard = () => {
     const [isFavorite, setIsFavorite] = React.useState(false);

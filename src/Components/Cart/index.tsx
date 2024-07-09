@@ -1,6 +1,6 @@
 import React from 'react';
-import CartItem from "./CartItem";
-import {ReactComponent as OrderArrow} from "../assets/orderArrow.svg";
+import CartItem from "../CartItem";
+import {ReactComponent as OrderArrow} from "../../assets/orderArrow.svg";
 
 const Cart = () => {
     return (
@@ -27,7 +27,7 @@ const Cart = () => {
                     </ul>
                     <button
                         type="button"
-                        className="orderBtn"
+                        className={`orderBtn`}
                     >Place an order <OrderArrow/>
                     </button>
                 </div>

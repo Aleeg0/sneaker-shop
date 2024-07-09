@@ -1,8 +1,8 @@
 import React from 'react';
-import {ReactComponent as CartLogo} from '../assets/cart.svg';
-import {ReactComponent as FavoriteLogo} from '../assets/favorite.svg';
-import {ReactComponent as ProfileLogo} from '../assets/profile.svg';
-import logo from "../assets/logo.svg";
+import {ReactComponent as CartLogo} from '../../assets/cart.svg';
+import {ReactComponent as FavoriteLogo} from '../../assets/favorite.svg';
+import {ReactComponent as ProfileLogo} from '../../assets/profile.svg';
+import logo from "../../assets/logo.svg";
 
 const Header = () => {
     return (

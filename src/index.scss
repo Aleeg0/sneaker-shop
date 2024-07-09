@@ -94,7 +94,7 @@ main{
 }
 
 
-@import "styles/Header";
-@import "styles/SneakerCard";
-
-@import "styles/cart";
+@import "Components/Header/Header";
+@import "Components/SneakerCard/SneakerCard";
+@import "Components/Cart/cart";
+@import "Components/CartItem/cartItem";

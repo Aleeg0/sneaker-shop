@@ -1,6 +1,6 @@
 import React from 'react';
-import img1 from "../assets/images/image1.jpg"
-import {ReactComponent as RemoveBtn} from "../assets/cartRemoveBtn.svg";
+import img1 from "../../assets/images/image1.jpg"
+import {ReactComponent as RemoveBtn} from "../../assets/cartRemoveBtn.svg";
 
 const CartItem = () => {
     return (
