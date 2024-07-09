@@ -4,12 +4,13 @@ import {ReactComponent as OrderArrow} from "../../assets/orderArrow.svg";
 import Sneaker from "../../Models/Sneaker";
 
 interface CartProps {
+    sneakersList: Sneaker[]
     isOpen : boolean,
     onCloseCart: (isOpen:boolean) => void,
-    sneakersList: Sneaker[]
+    onCartRemove: (sneaker: Sneaker) => void,
 }
 
-const Cart: FC<CartProps> = ({onCloseCart,isOpen, sneakersList}) => {
+const Cart: FC<CartProps> = ({sneakersList,onCloseCart,isOpen,onCartRemove}) => {
     return (
         <div className={`overlay ${isOpen ? 'open' : ''}`}>
             <div
@@ -23,6 +24,7 @@ const Cart: FC<CartProps> = ({onCloseCart,isOpen, sneakersList}) => {
                         return <CartItem
                             key={index}
                             {...sneaker}
+                            onRemove={onCartRemove}
                         />
                     })}
                 </div>

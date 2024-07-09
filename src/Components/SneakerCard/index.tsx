@@ -9,16 +9,17 @@ interface SneakerCardProps {
     name: string,
     price: number,
     imgURL: string,
-    onAction: (sneaker: Sneaker) => void,
+    onAction: (sneaker: Sneaker, added: boolean) => void,
+    isAdd: boolean
 }
 
-const SneakerCard: FC<SneakerCardProps> = ({id,name,price,imgURL,onAction}) => {
+const SneakerCard: FC<SneakerCardProps> = ({id,name,price,imgURL,onAction, isAdd}) => {
     const [isAdded,setIsAdded] = React.useState(false);
     const [isFavorite, setIsFavorite] = React.useState(false);
 
     const onClickAction = () => {
-        onAction({id,name,price,imgURL});
-        setIsAdded(!isAdded);
+        onAction({id,name,price,imgURL},isAdd);
+        //setIsAdded(!isAdd);
     }
 
     return (
@@ -39,10 +40,10 @@ const SneakerCard: FC<SneakerCardProps> = ({id,name,price,imgURL,onAction}) => {
                 </div>
                 <button
                     type="button"
-                    className={`cartAction ${isAdded ? "removeBtn": "addBtn"}`}
+                    className={`cartAction ${isAdd ? "removeBtn": "addBtn"}`}
                     onClick={onClickAction}
                 >
-                    {isAdded ? <CartRemoveBtn/> : <CartAddBtn/>}
+                    {isAdd ? <CartRemoveBtn/> : <CartAddBtn/>}
                 </button>
             </div>
         </div>

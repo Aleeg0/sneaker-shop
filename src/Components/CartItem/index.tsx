@@ -1,14 +1,16 @@
 import React, {FC} from 'react';
 import {ReactComponent as RemoveBtn} from "../../assets/cartRemoveBtn.svg";
+import Sneaker from "../../Models/Sneaker";
 
 interface CartItemProps {
     id: number,
     name: string,
     price: number,
-    imgURL: string
+    imgURL: string,
+    onRemove: (sneaker: Sneaker) => void,
 }
 
-const CartItem: FC<CartItemProps> = ({name,price,imgURL}) => {
+const CartItem: FC<CartItemProps> = ({id,name,price,imgURL, onRemove}) => {
     return (
         <div className="cartItem">
             <img src={imgURL} alt="cart Item"/>
@@ -18,6 +20,7 @@ const CartItem: FC<CartItemProps> = ({name,price,imgURL}) => {
             </div>
             <button
                 type="button"
+                onClick={() => onRemove({id,name,price,imgURL})}
             >
                 <RemoveBtn/>
             </button>
