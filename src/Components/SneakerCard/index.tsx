@@ -1,10 +1,15 @@
-import React from 'react';
-import img from "../../assets/images/image1.jpg"
+import React, {FC} from 'react';
 import {ReactComponent as FavoriteBtn} from "../../assets/favoriteBtn.svg"
 import {ReactComponent as CartAddBtn} from "../../assets/mainAddBtn.svg";
 import {ReactComponent as CartRemoveBtn} from "../../assets/mainRemoveBtn.svg"
 
-const SneakerCard = () => {
+interface SneakerCardProps {
+    name: string,
+    price: number,
+    imgURL: string
+}
+
+const SneakerCard: FC<SneakerCardProps> = ({name,price,imgURL}) => {
     const [isFavorite, setIsFavorite] = React.useState(false);
     const [isAdded, setIsAdded] = React.useState(false);
 
@@ -17,12 +22,12 @@ const SneakerCard = () => {
             >
                 <FavoriteBtn/>
             </button>
-            <img src={img} alt="sneaker"/>
-            <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
+            <img src={imgURL} alt="sneaker"/>
+            <p>{name}</p>
             <div className="d-flex justify-between fa-center">
                 <div className="d-flex fd-column">
                     <span>Price:</span>
-                    <b>100 USD</b>
+                    <b>{price} USD</b>
                 </div>
                 <button
                     type="button"
