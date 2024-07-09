@@ -1,16 +1,19 @@
 import React from 'react';
 import img from "../assets/images/image1.jpg"
 import {ReactComponent as FavoriteBtn} from "../assets/favoriteBtn.svg"
-import {ReactComponent as CartBtn} from "../assets/cartBtnAdd.svg";
+import {ReactComponent as CartAddBtn} from "../assets/cartAddBtn.svg";
+import {ReactComponent as CartRemoveBtn} from "../assets/cartRemoveBtn.svg"
 
 const SneakerCard = () => {
+    const [isFavorite, setIsFavorite] = React.useState(false);
     const [isAdded, setIsAdded] = React.useState(false);
 
     return (
         <div className="card">
             <button
-                className={`favorite ${isAdded && "active"}`}
-                onClick={() => setIsAdded(!isAdded)}
+                type="button"
+                className={`favorite ${isFavorite && "active"}`}
+                onClick={() => setIsFavorite(!isFavorite)}
             >
                 <FavoriteBtn/>
             </button>
@@ -21,8 +24,12 @@ const SneakerCard = () => {
                     <span>Price:</span>
                     <b>100 USD</b>
                 </div>
-                <button className="cartAction">
-                    <CartBtn/>
+                <button
+                    type="button"
+                    className={`cartAction ${isAdded ? "removeBtn": "addBtn"}`}
+                    onClick={() => setIsAdded(!isAdded)}
+                >
+                    {isAdded ? <CartRemoveBtn/> : <CartAddBtn/>}
                 </button>
             </div>
         </div>
