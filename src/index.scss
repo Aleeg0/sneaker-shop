@@ -20,10 +20,58 @@
 
 main{
     padding: 0 60px;
+}
 
-    h1{
-        margin-bottom: 40px;
+.contentInfo{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    h2 {
+        font-size: 32px;
     }
+
+    .searcher{
+        position: relative;
+
+
+        svg{
+            position: absolute;
+            top: 15px;
+            left: 18px;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        input{
+            width: 250px;
+            height: 45px;
+            padding: 13px 10px 15px 46px;
+            border: 1px solid #F3F3F3;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: padding-left 0.4s ease-in-out;
+
+            &:focus{
+                outline: none;
+                border: 1px solid #e3e3e3;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            }
+        }
+
+        &:hover{
+            svg {
+                visibility: hidden;
+                opacity: 0;
+            }
+
+            input{
+                padding-left: 18px;
+                box-shadow: 0 14px 30px rgba(0, 0, 0, 0.05);
+            }
+        }
+    }
+
 }
 
 .content{
@@ -45,5 +93,8 @@ main{
     }
 }
 
+
 @import "styles/Header";
 @import "styles/SneakerCard";
+
+@import "styles/cart";
