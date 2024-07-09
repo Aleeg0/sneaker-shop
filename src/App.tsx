@@ -31,21 +31,15 @@ function App() {
     }, []);
 
     const onCartAction = async (sneaker: Sneaker, isAdded: boolean) => {
-        // if we need to add
-        if (isAdded){
-            let findSneaker: Sneaker| undefined = cartSneakers.find(curSneaker => isEqual(curSneaker,sneaker))
-            if (findSneaker) {
-                await onRemoveFromCart(findSneaker);
-            }
-        }
         // if we need to remove
+        if (isAdded){
+            await onRemoveFromCart(cartSneakers.find(curSneaker => isEqual(curSneaker,sneaker))!);
+        }
+        // if we need to add
         else{
             try {
-                await axios.post("https://0f8af2c588831550.mokky.dev/cart", sneaker);
-                axios.get("https://0f8af2c588831550.mokky.dev/cart").then(res => {
-                    setCartSneakers(c => c = res.data);
-                });
-
+                const {data} = await axios.post("https://0f8af2c588831550.mokky.dev/cart", sneaker);
+                setCartSneakers(c => [...c,data]);
             }
             catch (err) {
                 console.log(`failed:, ${err}`);
