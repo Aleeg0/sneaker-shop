@@ -6,6 +6,16 @@
     border-radius: 40px;
     position: relative;
     padding: 20px 29px 34px 30px;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover{
+        background: #FFFFFF;
+        border: 1px solid #F8F8F8;
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.05);
+        border-radius: 40px;
+        transform: translateY(-10px);
+    }
+
 
     img{
         width: 133px;
@@ -71,11 +81,4 @@
             }
         }
     }
-
-
-
-    .cartAction {
-
-    }
-
 }

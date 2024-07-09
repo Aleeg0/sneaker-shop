@@ -31,10 +31,11 @@ body {
 
 .wrapper {
   width: calc(100% - 60px);
-  margin: 30px;
+  height: 100vh;
+  margin: 30px 30px 0 30px;
   background: #FFFFFF;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
-  border-radius: 20px;
+  border-radius: 20px 20px 0 0;
 }
 
 main {
@@ -46,7 +47,24 @@ main h1 {
 
 .content {
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(8, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+@media (max-width: 1920px) {
+  .content {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 430px) {
+  .content {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 header {
@@ -61,6 +79,11 @@ header hr {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media (max-width: 430px) {
+  .shopHeader {
+    flex-direction: column;
+  }
 }
 .shopHeader__info {
   display: flex;
@@ -94,6 +117,14 @@ header hr {
   border-radius: 40px;
   position: relative;
   padding: 20px 29px 34px 30px;
+  transition: transform 0.2s ease-in-out;
+}
+.card:hover {
+  background: #FFFFFF;
+  border: 1px solid #F8F8F8;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 40px;
+  transform: translateY(-10px);
 }
 .card img {
   width: 133px;
