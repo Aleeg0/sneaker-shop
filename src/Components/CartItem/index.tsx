@@ -1,13 +1,20 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {ReactComponent as RemoveBtn} from "../../assets/cartRemoveBtn.svg";
 
-const CartItem = () => {
+interface CartItemProps {
+    id: number,
+    name: string,
+    price: number,
+    imgURL: string
+}
+
+const CartItem: FC<CartItemProps> = ({name,price,imgURL}) => {
     return (
         <div className="cartItem">
-            <img src={""} alt="cart Item"/>
+            <img src={imgURL} alt="cart Item"/>
             <div className="cartItemInfo">
-                <h3>Мужские Кроссовки Nike Air Max 270</h3>
-                <b>100 USD</b>
+                <h3>{name}</h3>
+                <b>{price} USD</b>
             </div>
             <button
                 type="button"
