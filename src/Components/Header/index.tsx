@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {ReactComponent as CartLogo} from '../../assets/cart.svg';
 import {ReactComponent as FavoriteLogo} from '../../assets/favorite.svg';
 import {ReactComponent as ProfileLogo} from '../../assets/profile.svg';
 import logo from "../../assets/logo.svg";
 
-const Header = () => {
+interface HeaderProps {
+    onClickCart: (state: boolean) => void
+}
+
+const Header: FC<HeaderProps> = ({onClickCart}) => {
     return (
         <header>
             <div className="shopHeader">
@@ -17,7 +21,7 @@ const Header = () => {
                 </div>
                 <ul>
                     <li>
-                        <CartLogo/>
+                        <CartLogo onClick={() => onClickCart(true)}/>
                         <p>500 USD</p>
                     </li>
                     <li>
