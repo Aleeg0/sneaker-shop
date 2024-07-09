@@ -1,13 +1,29 @@
-import React from 'react';
+import React, {FC} from 'react';
 import CartItem from "../CartItem";
 import {ReactComponent as OrderArrow} from "../../assets/orderArrow.svg";
 
-const Cart = () => {
+interface CartProps {
+    isOpen : boolean
+    onCloseCart: (isOpen:boolean) => void
+}
+
+const Cart: FC<CartProps> = ({onCloseCart,isOpen }) => {
     return (
-        <div className="overlay">
-            <div className="cartBar">
+        <div className={`overlay ${isOpen ? 'open' : ''}`}>
+            <div
+                className="empty"
+                onClick={() => onCloseCart(false)}
+            />
+            <div className={`cartBar ${isOpen ? 'open' : ''}`}>
                 <h2>Cart</h2>
                 <div className="cartItems">
+                    <CartItem/>
+                    <CartItem/>
+                    <CartItem/>
+                    <CartItem/>
+                    <CartItem/>
+                    <CartItem/>
+                    <CartItem/>
                     <CartItem/>
                     <CartItem/>
                     <CartItem/>
