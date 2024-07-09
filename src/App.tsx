@@ -6,9 +6,14 @@ import Sneaker from "./Models/Sneaker";
 import "./index.css"
 import Cart from "./Components/Cart";
 import axios from "axios";
+import cart from "./Components/Cart";
 
 function App() {
+    // all sneakers stats
     const [sneakersList,setSneakersList] = React.useState<Sneaker[]>([]);
+    const [cartSneakers,setCartSneakers] = React.useState<Sneaker[]>([]);
+    const [favoriteSneakers,setFavoriteSneakers] = React.useState<Sneaker[]>([]);
+    // for
     const [isCartOpen, setIsCartOpen] = React.useState<boolean>(false);
 
     useEffect(() => {
@@ -20,11 +25,27 @@ function App() {
             .catch(err => console.log(err))
     }, []);
 
+    const onCartAction = (sneaker: Sneaker) => {
+        // if we need to remove
+        console.log(sneaker);
+        if (cartSneakers.find(curSneaker =>
+            curSneaker.id === sneaker.id && curSneaker.name === sneaker.name && curSneaker.price === sneaker.price
+        )) {
+            // TODO backed request
+            setCartSneakers(c => c.filter(curSneaker => curSneaker.id !== sneaker.id))
+        }// if we need to add
+        else{
+            // TODO backed request
+            setCartSneakers(c => [...c, sneaker]);
+        }
+    }
+
     return (
         <div className="wrapper">
             <Cart
                 isOpen={isCartOpen}
                 onCloseCart={setIsCartOpen}
+                sneakersList={cartSneakers}
             />
             <Header onClickCart={setIsCartOpen}/>
             <main>
@@ -41,10 +62,8 @@ function App() {
                 <div className="content">
                     {sneakersList.map((sneaker) =>
                         <SneakerCard
-                            key={sneaker.id}
-                            name={sneaker.name}
-                            price={sneaker.price}
-                            imgURL={sneaker.imgURL}
+                            {...sneaker}
+                            onAction={onCartAction}
                         />
                     )}
                 </div>
