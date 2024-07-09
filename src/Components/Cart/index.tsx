@@ -1,13 +1,15 @@
 import React, {FC} from 'react';
 import CartItem from "../CartItem";
 import {ReactComponent as OrderArrow} from "../../assets/orderArrow.svg";
+import Sneaker from "../../Models/Sneaker";
 
 interface CartProps {
-    isOpen : boolean
-    onCloseCart: (isOpen:boolean) => void
+    isOpen : boolean,
+    onCloseCart: (isOpen:boolean) => void,
+    sneakersList: Sneaker[]
 }
 
-const Cart: FC<CartProps> = ({onCloseCart,isOpen }) => {
+const Cart: FC<CartProps> = ({onCloseCart,isOpen, sneakersList}) => {
     return (
         <div className={`overlay ${isOpen ? 'open' : ''}`}>
             <div
@@ -17,16 +19,12 @@ const Cart: FC<CartProps> = ({onCloseCart,isOpen }) => {
             <div className={`cartBar ${isOpen ? 'open' : ''}`}>
                 <h2>Cart</h2>
                 <div className="cartItems">
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
+                    {sneakersList.map((sneaker, index) => {
+                        return <CartItem
+                            key={index}
+                            {...sneaker}
+                        />
+                    })}
                 </div>
                 <div>
                     <ul>
