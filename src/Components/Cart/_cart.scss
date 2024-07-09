@@ -23,6 +23,7 @@
     box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
 
     .cartItems{
+        overflow: auto;
         display: flex;
         flex-direction: column;
         row-gap: 20px;
