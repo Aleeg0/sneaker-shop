@@ -10,6 +10,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: default;
 
     @media (max-width: 430px) {
         flex-direction: column;
@@ -18,6 +19,8 @@ header{
     &__info {
         display: flex;
         padding: 10px;
+        cursor: pointer;
+
         img{
             margin-right: 10px;
         }
@@ -39,6 +42,10 @@ header{
             justify-content: center;
             align-items: center;
             gap: 9px;
+
+            svg{
+                cursor: pointer;
+            }
         }
     }
 }
