@@ -8,8 +8,18 @@ function App() {
       <div className="wrapper">
           <Header/>
           <main>
-              <h1>ALL Sneakers</h1>
+              <div className="d-flex justify-between">
+                  <h1>ALL Sneakers</h1>
+                  <input />
+              </div>
               <div className="content">
+                  <SneakerCard/>
+                  <SneakerCard/>
+                  <SneakerCard/>
+                  <SneakerCard/>
+                  <SneakerCard/>
+                  <SneakerCard/>
+                  <SneakerCard/>
                   <SneakerCard/>
               </div>
           </main>

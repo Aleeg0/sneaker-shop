@@ -11,6 +11,10 @@ header{
     justify-content: space-between;
     align-items: center;
 
+    @media (max-width: 430px) {
+        flex-direction: column;
+    }
+
     &__info {
         display: flex;
         padding: 10px;
