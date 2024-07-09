@@ -12,8 +12,10 @@ header{
     align-items: center;
     cursor: default;
 
-    @media (max-width: 430px) {
+    @media (max-width: 730px) {
         flex-direction: column;
+        align-items: normal;
+        row-gap: 30px;
     }
 
     &__info {
@@ -36,6 +38,12 @@ header{
         display: flex;
         align-items: center;
         column-gap: 32px;
+
+        @media (max-width: 500px) {
+            flex-direction: column;
+            row-gap: 20px;
+            align-items: flex-start;
+        }
 
         li{
             display: flex;
