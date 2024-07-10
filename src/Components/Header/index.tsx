@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
 
 const Header = () => {
-    const {setIsCartOpened} = useCartSneakers();
+    const {setIsCartOpened, total} = useCartSneakers();
 
     return (
         <header>
@@ -25,7 +25,7 @@ const Header = () => {
                     <li>
                         <Link to="cart">
                             <CartLogo onClick={() => setIsCartOpened(true)}/>
-                            <p>500 USD</p>
+                            <p>{total} USD</p>
                         </Link>
                     </li>
                     <li>
