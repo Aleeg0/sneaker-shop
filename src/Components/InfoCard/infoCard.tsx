@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {ReactComponent as ArrowImg} from '../../assets/orderArrow.svg';
 import {useNavigate} from "react-router-dom";
 import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
+import styles from "./infoCard.module.scss"
 
 interface InfoCardProps {
   title: string,
@@ -20,7 +21,7 @@ const InfoCard: FC<InfoCardProps> = ({title,description,imgName,altText}) => {
   }
 
   return (
-    <div className="infoCard">
+    <div className={styles.infoCard}>
       <img src={process.env.PUBLIC_URL + `/images/${imgName}`} alt={altText} />
       <h2>{title}</h2>
       <p>{description}</p>
