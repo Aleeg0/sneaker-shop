@@ -5,7 +5,13 @@ export const useCartSneakers = () => {
     const state = useContext<IAppContext|null>(AppContext);
     if (state) {
         const total = state.cartSneakers.reduce((sum,sneaker) => sneaker.price + sum, 0);
-        return {cartSneakers: state.cartSneakers, total: total, onCartAction: state.onCartAction};
+        return {
+            total: total,
+            cartSneakers: state.cartSneakers,
+            onCartAction: state.onCartAction,
+            isCartOpened: state.isCartOpened,
+            setIsCartOpened: state.setIsCartOpened
+        };
     }
     throw new Error("cartSneakerContext is undefined");
 
