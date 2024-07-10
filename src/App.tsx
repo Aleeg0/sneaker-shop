@@ -66,8 +66,8 @@ function App() {
       // if we need to remove
       if (favoriteSneakers.some(curSneaker => curSneaker.sneakerId === sneaker.sneakerId)) {
         setFavoriteSneakers(c => c.filter(curSneaker => curSneaker.sneakerId !== sneaker.sneakerId));
-        await axios.delete(`https://0f8af2c588831550.mokky.dev/favorites/
-                    ${favoriteSneakers.find(curSneaker => curSneaker.sneakerId !== sneaker.sneakerId)!.id}`
+        await axios.delete("https://0f8af2c588831550.mokky.dev/favorites/" +
+                    favoriteSneakers.find(curSneaker => curSneaker.sneakerId === sneaker.sneakerId)!.id
         );
       }
       // if we need to add
