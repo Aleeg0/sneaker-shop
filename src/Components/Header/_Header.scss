@@ -5,6 +5,11 @@ header{
         border: 1px solid #EAEAEA;
     }
 }
+
+a{
+    text-decoration: none;
+}
+
 .shopHeader {
     padding: 43px;
     display: flex;
@@ -31,6 +36,11 @@ header{
     &__titles {
         display: flex;
         flex-direction: column;
+        color: #000000;
+
+        p {
+            opacity: 0.7;
+        }
     }
 
     ul {
