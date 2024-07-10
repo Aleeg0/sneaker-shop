@@ -6,7 +6,7 @@ import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const {cartSneakers, onCartAction, setIsCartOpened, isCartOpened} = useCartSneakers();
+  const {cartSneakers, onCartAction, setIsCartOpened, isCartOpened,total} = useCartSneakers();
 
   const onCloseCart = () => {
     setIsCartOpened(false);
@@ -35,12 +35,12 @@ const Cart = () => {
             <li>
               <span>Total:</span>
               <hr/>
-              <b>500 USD</b>
+              <b>{total} USD</b>
             </li>
             <li>
               <span>Tax 5%:</span>
               <hr/>
-              <b>5 USD</b>
+              <b>{total * 0.05} USD</b>
             </li>
           </ul>
           <button
