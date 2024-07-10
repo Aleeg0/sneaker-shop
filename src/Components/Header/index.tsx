@@ -22,9 +22,9 @@ const Header = () => {
                     </div>
                 </Link>
                 <ul>
-                    <li>
+                    <li onClick={() => setIsCartOpened(true)}>
                         <Link to="cart">
-                            <CartLogo onClick={() => setIsCartOpened(true)}/>
+                            <CartLogo/>
                             <p>{total} USD</p>
                         </Link>
                     </li>
