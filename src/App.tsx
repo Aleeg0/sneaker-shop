@@ -44,8 +44,6 @@ function App() {
       // if we need to remove
       if (cartSneakers.some(curSneaker => curSneaker.sneakerId === sneaker.sneakerId)) {
         setCartSneakers(c => c.filter(curSneaker => curSneaker.sneakerId !== sneaker.sneakerId));
-        const s = cartSneakers.find(curSneaker => curSneaker.sneakerId === sneaker.sneakerId);
-        console.log(s!.id);
         await axios.delete("https://0f8af2c588831550.mokky.dev/cart/"
           + cartSneakers.find(curSneaker => curSneaker.sneakerId === sneaker.sneakerId)!.id
         );
@@ -53,7 +51,6 @@ function App() {
       // if we need to add
       else {
         const {data} = await axios.post("https://0f8af2c588831550.mokky.dev/cart", sneaker);
-        console.log(data.id, data.sneakerId);
         setCartSneakers(c => [...c,data]);
       }
     }
