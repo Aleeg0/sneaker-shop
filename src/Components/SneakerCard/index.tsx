@@ -5,46 +5,56 @@ import {ReactComponent as CartRemoveBtn} from "../../assets/mainRemoveBtn.svg"
 import Sneaker from "../../Models/Sneaker";
 
 interface SneakerCardProps {
-    id:number,
-    name: string,
-    price: number,
-    imgURL: string,
-    onAction: (sneaker: Sneaker, added: boolean) => void,
-    isAdd: boolean
+    sneaker: Sneaker,
+    onCartAction?: (sneaker: Sneaker) => void,
+    onFavoriteAction?: (sneaker: Sneaker) => void,
+    isAdded: boolean,
+    isFavorite: boolean
 }
 
-const SneakerCard: FC<SneakerCardProps> = ({id,name,price,imgURL,onAction, isAdd}) => {
-    const [isAdded,setIsAdded] = React.useState(false);
-    const [isFavorite, setIsFavorite] = React.useState(false);
+const SneakerCard: FC<SneakerCardProps> = ({
+    sneaker,
+    onCartAction = null,
+    onFavoriteAction = null,
+    isAdded,
+    isFavorite
+}) => {
 
-    const onClickAction = () => {
-        onAction({id,name,price,imgURL},isAdd);
-        //setIsAdded(!isAdd);
+    const onClickCartAction = () => {
+        onCartAction!(sneaker);
+    }
+
+    const onClickFavoriteAction = () => {
+        onFavoriteAction!(sneaker)
     }
 
     return (
         <div className="card">
-            <button
-                type="button"
-                className={`favorite ${isFavorite && "active"}`}
-                onClick={() => setIsFavorite(!isFavorite)}
-            >
-                <FavoriteBtn/>
-            </button>
-            <img src={imgURL} alt="sneaker"/>
-            <p>{name}</p>
-            <div className="d-flex justify-between fa-center">
-                <div className="d-flex fd-column">
-                    <span>Price:</span>
-                    <b>{price} USD</b>
-                </div>
+            {onFavoriteAction &&
                 <button
                     type="button"
-                    className={`cartAction ${isAdd ? "removeBtn": "addBtn"}`}
-                    onClick={onClickAction}
+                    className={`favorite ${isFavorite && "active"}`}
+                    onClick={onClickFavoriteAction}
                 >
-                    {isAdd ? <CartRemoveBtn/> : <CartAddBtn/>}
+                    <FavoriteBtn/>
                 </button>
+            }
+            <img src={sneaker.imgURL} alt="sneaker"/>
+            <p>{sneaker.name}</p>
+            <div className="d-flex justify-between fa-center">
+                <div className="d-flex fd-column">
+                <span>Price:</span>
+                    <b>{sneaker.price} USD</b>
+                </div>
+                {onCartAction &&
+                    <button
+                        type="button"
+                        className={`cartAction ${isAdded ? "removeBtn" : "addBtn"}`}
+                        onClick={onClickCartAction}
+                    >
+                        {isAdded ? <CartRemoveBtn/> : <CartAddBtn/>}
+                    </button>
+                }
             </div>
         </div>
     );
