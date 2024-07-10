@@ -1,55 +1,57 @@
-import React, {FC} from 'react';
+import React from 'react';
 import CartItem from "../CartItem";
 import {ReactComponent as OrderArrow} from "../../assets/orderArrow.svg";
-import Sneaker from "../../Models/Sneaker";
+import {useNavigate} from "react-router-dom";
+import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
 
-interface CartProps {
-    sneakersList: Sneaker[]
-    isOpen : boolean,
-    onCloseCart: (isOpen:boolean) => void,
-    onCartRemove: (sneaker: Sneaker) => void,
-}
+const Cart = () => {
+  const navigate = useNavigate();
+  const {cartSneakers, onCartAction, setIsCartOpened, isCartOpened} = useCartSneakers();
 
-const Cart: FC<CartProps> = ({sneakersList,onCloseCart,isOpen,onCartRemove}) => {
-    return (
-        <div className={`overlay ${isOpen ? 'open' : ''}`}>
-            <div
-                className="empty"
-                onClick={() => onCloseCart(false)}
+  const onCloseCart = () => {
+    setIsCartOpened(false);
+    navigate(-1);
+  }
+
+  return (
+    <div className={`overlay ${isCartOpened ? 'open' : ''}`}>
+      <div
+        className="empty"
+        onClick={onCloseCart}
+      />
+      <div className={`cartBar ${isCartOpened ? 'open' : ''}`}>
+        <h2>Cart</h2>
+        <div className="cartItems">
+          {cartSneakers.map((sneaker, index) =>
+            <CartItem
+              key={index}
+              sneaker={sneaker}
+              onRemove={onCartAction}
             />
-            <div className={`cartBar ${isOpen ? 'open' : ''}`}>
-                <h2>Cart</h2>
-                <div className="cartItems">
-                    {sneakersList.map((sneaker, index) => {
-                        return <CartItem
-                            key={index}
-                            {...sneaker}
-                            onRemove={onCartRemove}
-                        />
-                    })}
-                </div>
-                <div>
-                    <ul>
-                        <li>
-                            <span>Total:</span>
-                            <hr/>
-                            <b>500 USD</b>
-                        </li>
-                        <li>
-                            <span>Tax 5%:</span>
-                            <hr/>
-                            <b>5 USD</b>
-                        </li>
-                    </ul>
-                    <button
-                        type="button"
-                        className={`orderBtn`}
-                    >Place an order <OrderArrow/>
-                    </button>
-                </div>
-            </div>
+          )}
         </div>
-    );
+        <div>
+          <ul>
+            <li>
+              <span>Total:</span>
+              <hr/>
+              <b>500 USD</b>
+            </li>
+            <li>
+              <span>Tax 5%:</span>
+              <hr/>
+              <b>5 USD</b>
+            </li>
+          </ul>
+          <button
+            type="button"
+            className={`orderBtn`}
+          >Place an order <OrderArrow/>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Cart;
