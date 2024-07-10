@@ -437,4 +437,12 @@ a {
   background-color: #93d148;
 }
 
+.contentInfo button {
+  border: none;
+  outline: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+}
+
 /*# sourceMappingURL=index.css.map */

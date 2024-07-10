@@ -83,13 +83,9 @@ main{
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
     grid-column-gap: 20px;
     grid-row-gap: 20px;
-
-
 }
 
 
-@import "Components/Header/Header";
-@import "Components/SneakerCard/SneakerCard";
-@import "Components/Cart/cart";
-@import "Components/CartItem/cartItem";
-@import "Components/InfoCard/infoCard";
+
+@import "Pages/Home/home";
+@import "Pages/Favorite/favorite";
