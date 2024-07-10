@@ -387,4 +387,54 @@ a {
   fill: #E7F6FF;
 }
 
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 285px;
+  align-self: center;
+  transform: translateY(80%);
+}
+.infoCard img {
+  margin-bottom: 21px;
+}
+.infoCard h2 {
+  font-size: 22px;
+  margin-bottom: 9px;
+}
+.infoCard p {
+  text-align: center;
+  font-size: 16px;
+  opacity: 0.4;
+  margin-bottom: 40px;
+}
+.infoCard button {
+  width: 245px;
+  height: 55px;
+  outline: none;
+  border: none;
+  background: #9DD458;
+  border-radius: 18px;
+  position: relative;
+  padding: 17px 0 19px 0;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+.infoCard button svg {
+  position: absolute;
+  top: 21px;
+  left: 40px;
+  transform: rotatey(180deg);
+  transition: left 0.3s ease-in-out;
+}
+.infoCard button:hover {
+  background-color: #a7d968;
+}
+.infoCard button:hover svg {
+  left: 25px;
+}
+.infoCard button:active {
+  background-color: #93d148;
+}
+
 /*# sourceMappingURL=index.css.map */
