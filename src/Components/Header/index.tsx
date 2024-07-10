@@ -1,36 +1,45 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {ReactComponent as CartLogo} from '../../assets/cart.svg';
 import {ReactComponent as FavoriteLogo} from '../../assets/favorite.svg';
 import {ReactComponent as ProfileLogo} from '../../assets/profile.svg';
 import logo from "../../assets/logo.svg";
+import {Link} from "react-router-dom";
+import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
 
-interface HeaderProps {
-    onClickCart: (state: boolean) => void
-}
+const Header = () => {
+    const {setIsCartOpened} = useCartSneakers();
 
-const Header: FC<HeaderProps> = ({onClickCart}) => {
     return (
         <header>
             <div className="shopHeader">
-                <div className="shopHeader__info">
-                    <img src={logo} alt="Logo"/>
-                    <div className="shopHeader__titles">
-                        <h2>Sneakers.by</h2>
-                        <p>Best sneakers shop</p>
+                <Link to="/">
+                    <div className="shopHeader__info">
+                        <img src={logo} alt="Logo"/>
+                        <div className="shopHeader__titles">
+                            <h2>Sneakers.by</h2>
+                            <p>Best sneakers shop</p>
+                        </div>
                     </div>
-                </div>
+                </Link>
                 <ul>
                     <li>
-                        <CartLogo onClick={() => onClickCart(true)}/>
-                        <p>500 USD</p>
+                        <Link to="cart">
+                            <CartLogo onClick={() => setIsCartOpened(true)}/>
+                            <p>500 USD</p>
+                        </Link>
                     </li>
                     <li>
-                        <FavoriteLogo/>
-                        <p>Favorite</p>
+                        <Link to="/favorites">
+                            <FavoriteLogo/>
+                            <p>Favorite</p>
+                        </Link>
+
                     </li>
                     <li>
-                        <ProfileLogo/>
-                        <p>Profile</p>
+                        <Link to="/profile">
+                            <ProfileLogo/>
+                            <p>Profile</p>
+                        </Link>
                     </li>
                 </ul>
             </div>
