@@ -8,6 +8,7 @@ import Profile from "./Pages/Profile";
 import Sneaker from "./Models/Sneaker";
 import {AppContext} from "./Hooks/AppContext";
 import Cart from "./Components/Cart";
+import favorite from "./Pages/Favorite";
 
 function App() {
   // all sneakers stats
@@ -63,15 +64,15 @@ function App() {
   const onFavoriteAction = async (sneaker: Sneaker) => {
     try {
       // if we need to remove
-      if (cartSneakers.some(curSneaker => curSneaker.sneakerId === sneaker.sneakerId)) {
+      if (favoriteSneakers.some(curSneaker => curSneaker.sneakerId === sneaker.sneakerId)) {
         setFavoriteSneakers(c => c.filter(curSneaker => curSneaker.sneakerId !== sneaker.sneakerId));
-        await axios.delete(`https://0f8af2c588831550.mokky.dev/cart/
+        await axios.delete(`https://0f8af2c588831550.mokky.dev/favorites/
                     ${favoriteSneakers.find(curSneaker => curSneaker.sneakerId !== sneaker.sneakerId)!.id}`
         );
       }
       // if we need to add
       else {
-        const {data} = await axios.post("https://0f8af2c588831550.mokky.dev/cart", sneaker);
+        const {data} = await axios.post("https://0f8af2c588831550.mokky.dev/favorites", sneaker);
         setFavoriteSneakers(c => [...c, data]);
       }
     }
