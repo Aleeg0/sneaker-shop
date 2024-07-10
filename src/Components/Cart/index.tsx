@@ -3,8 +3,8 @@ import CartItem from "../CartItem";
 import {ReactComponent as OrderArrow} from "../../assets/orderArrow.svg";
 import {useNavigate} from "react-router-dom";
 import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
-import {ReactComponent as CartEmpty} from "../../../public/images/cartEmpty.svg";
 import InfoCard from "../InfoCard/infoCard";
+import styles from "./cart.module.scss"
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -16,14 +16,14 @@ const Cart = () => {
   }
 
   return (
-    <div className={`overlay ${isCartOpened ? 'open' : ''}`}>
+    <div className={`${styles.overlay} ${isCartOpened ? styles.open : ''}`}>
       <div
         className="empty"
         onClick={onCloseCart}
       />
-      <div className={`cartBar ${isCartOpened ? 'open' : ''}`}>
+      <div className={`${styles.cartBar} ${isCartOpened ? styles.open : ''}`}>
         <h2>Cart</h2>
-        <div className="cartItems">
+        <div className={styles.cartItems}>
           {cartSneakers.length > 0 ?
             cartSneakers.map((sneaker, index) =>
               <CartItem
@@ -55,7 +55,7 @@ const Cart = () => {
           </ul>
           <button
             type="button"
-            className={`orderBtn`}
+            className={styles.orderBtn}
           >Place an order <OrderArrow/>
           </button>
         </div>

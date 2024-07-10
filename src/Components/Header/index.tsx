@@ -5,17 +5,18 @@ import {ReactComponent as ProfileLogo} from '../../assets/profile.svg';
 import logo from "../../assets/logo.svg";
 import {Link} from "react-router-dom";
 import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
+import styles from "./header.module.scss"
 
 const Header = () => {
     const {setIsCartOpened, total} = useCartSneakers();
 
     return (
         <header>
-            <div className="shopHeader">
+            <div className={styles.shopHeader}>
                 <Link to="/">
-                    <div className="shopHeader__info">
+                    <div className={styles.shopHeader__info}>
                         <img src={logo} alt="Logo"/>
-                        <div className="shopHeader__titles">
+                        <div className={styles.shopHeader__titles}>
                             <h2>Sneakers.by</h2>
                             <p>Best sneakers shop</p>
                         </div>

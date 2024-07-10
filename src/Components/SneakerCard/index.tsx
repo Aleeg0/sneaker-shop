@@ -3,6 +3,7 @@ import {ReactComponent as FavoriteBtn} from "../../assets/favoriteBtn.svg"
 import {ReactComponent as CartAddBtn} from "../../assets/mainAddBtn.svg";
 import {ReactComponent as CartRemoveBtn} from "../../assets/mainRemoveBtn.svg"
 import Sneaker from "../../Models/Sneaker";
+import styles from "./sneakerCard.module.scss";
 
 interface SneakerCardProps {
   sneaker: Sneaker,
@@ -13,12 +14,12 @@ interface SneakerCardProps {
 }
 
 const SneakerCard: FC<SneakerCardProps> = ({
-                                             sneaker,
-                                             onCartAction = null,
-                                             onFavoriteAction = null,
-                                             isAdded,
-                                             isFavorite
-                                           }) => {
+   sneaker,
+   onCartAction = null,
+   onFavoriteAction = null,
+   isAdded,
+   isFavorite
+}) => {
 
   const onClickCartAction = () => {
     onCartAction!(sneaker);
@@ -29,11 +30,11 @@ const SneakerCard: FC<SneakerCardProps> = ({
   }
 
   return (
-    <div className="card">
+    <div className={styles.card}>
       {onFavoriteAction &&
           <button
               type="button"
-              className={`favorite ${isFavorite && "active"}`}
+              className={`${styles.favorite} ${isFavorite && styles.active}`}
               onClick={onClickFavoriteAction}
           >
               <FavoriteBtn/>
@@ -47,13 +48,13 @@ const SneakerCard: FC<SneakerCardProps> = ({
           <b>{sneaker.price} USD</b>
         </div>
         {onCartAction &&
-            <button
-                type="button"
-                className={`cartAction ${isAdded ? "removeBtn" : "addBtn"}`}
-                onClick={onClickCartAction}
-            >
-              {isAdded ? <CartRemoveBtn/> : <CartAddBtn/>}
-            </button>
+          <button
+              type="button"
+              className={`${styles.cartAction} ${isAdded ? styles.removeBtn : styles.addBtn}`}
+              onClick={onClickCartAction}
+          >
+            {isAdded ? <CartRemoveBtn/> : <CartAddBtn/>}
+          </button>
         }
       </div>
     </div>

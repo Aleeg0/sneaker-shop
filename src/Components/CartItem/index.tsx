@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 import {ReactComponent as RemoveBtn} from "../../assets/cartRemoveBtn.svg";
 import Sneaker from "../../Models/Sneaker";
+import styles from "./cartItem.module.scss"
 
 interface CartItemProps {
     sneaker: Sneaker,
@@ -9,9 +10,9 @@ interface CartItemProps {
 
 const CartItem: FC<CartItemProps> = ({sneaker, onRemove}) => {
     return (
-        <div className="cartItem">
+        <div className={styles.cartItem}>
             <img src={sneaker.imgURL} alt="cart Item"/>
-            <div className="cartItemInfo">
+            <div>
                 <h3>{sneaker.name}</h3>
                 <b>{sneaker.price} USD</b>
             </div>
