@@ -3,24 +3,21 @@ import {ReactComponent as RemoveBtn} from "../../assets/cartRemoveBtn.svg";
 import Sneaker from "../../Models/Sneaker";
 
 interface CartItemProps {
-    id: number,
-    name: string,
-    price: number,
-    imgURL: string,
+    sneaker: Sneaker,
     onRemove: (sneaker: Sneaker) => void,
 }
 
-const CartItem: FC<CartItemProps> = ({id,name,price,imgURL, onRemove}) => {
+const CartItem: FC<CartItemProps> = ({sneaker, onRemove}) => {
     return (
         <div className="cartItem">
-            <img src={imgURL} alt="cart Item"/>
+            <img src={sneaker.imgURL} alt="cart Item"/>
             <div className="cartItemInfo">
-                <h3>{name}</h3>
-                <b>{price} USD</b>
+                <h3>{sneaker.name}</h3>
+                <b>{sneaker.price} USD</b>
             </div>
             <button
                 type="button"
-                onClick={() => onRemove({id,name,price,imgURL})}
+                onClick={() => onRemove(sneaker)}
             >
                 <RemoveBtn/>
             </button>
