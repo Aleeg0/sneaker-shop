@@ -3,6 +3,8 @@ import CartItem from "../CartItem";
 import {ReactComponent as OrderArrow} from "../../assets/orderArrow.svg";
 import {useNavigate} from "react-router-dom";
 import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
+import {ReactComponent as CartEmpty} from "../../../public/images/cartEmpty.svg";
+import InfoCard from "../InfoCard/infoCard";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -22,13 +24,21 @@ const Cart = () => {
       <div className={`cartBar ${isCartOpened ? 'open' : ''}`}>
         <h2>Cart</h2>
         <div className="cartItems">
-          {cartSneakers.map((sneaker, index) =>
-            <CartItem
-              key={index}
-              sneaker={sneaker}
-              onRemove={onCartAction}
+          {cartSneakers.length > 0 ?
+            cartSneakers.map((sneaker, index) =>
+              <CartItem
+                key={index}
+                sneaker={sneaker}
+                onRemove={onCartAction}
+              />
+            ) :
+            <InfoCard
+              title={"Cart is Empty"}
+              description={"Add at least one pair of sneakers to place an order."}
+              imgName={"cartEmpty.svg"}
+              altText={"cartEmptyImg"}
             />
-          )}
+          }
         </div>
         <div>
           <ul>
