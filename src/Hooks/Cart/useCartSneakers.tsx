@@ -8,6 +8,7 @@ export const useCartSneakers = () => {
         return {
             total: total,
             cartSneakers: state.cartSneakers,
+            setCartSneakers: state.setCartSneakers,
             onCartAction: state.onCartAction,
             isCartOpened: state.isCartOpened,
             setIsCartOpened: state.setIsCartOpened
