@@ -9,16 +9,16 @@ interface InfoCardProps {
   description: string,
   imgName: string,
   altText: string,
+  onButtonClick: () => void
 }
 
-const InfoCard: FC<InfoCardProps> = ({title,description,imgName,altText}) => {
-  const navigate = useNavigate();
-  const {setIsCartOpened} = useCartSneakers();
-
-  const onCloseCart = () => {
-    setIsCartOpened(false);
-    navigate(-1);
-  }
+const InfoCard: FC<InfoCardProps> = ({
+  title,
+  description,
+  imgName,
+  altText,
+  onButtonClick
+}) => {
 
   return (
     <div className={styles.infoCard}>
@@ -26,7 +26,7 @@ const InfoCard: FC<InfoCardProps> = ({title,description,imgName,altText}) => {
       <h2>{title}</h2>
       <p>{description}</p>
       <button
-        onClick={onCloseCart}
+        onClick={onButtonClick}
       >
         <ArrowImg/>
         Go back
