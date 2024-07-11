@@ -2,13 +2,13 @@ import React, {useEffect} from 'react';
 import "./index.css"
 import axios from "axios";
 import {Route, Routes} from "react-router-dom";
-import Home from "./Pages/Home/Home";
-import Favorite from "./Pages/Favorite/Favorite";
+import Home from "./Pages/Home";
+import Favorite from "./Pages/Favorite";
 import Profile from "./Pages/Profile";
 import Sneaker from "./Models/Sneaker";
 import {AppContext} from "./Hooks/AppContext";
 import Cart from "./Components/Cart";
-import favorite from "./Pages/Favorite/Favorite";
+import favorite from "./Pages/Favorite";
 
 function App() {
   // all sneakers stats
