@@ -1,5 +1,5 @@
 .overlay{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -64,6 +64,11 @@
     flex: 1;
 }
 
+.emptyCart{
+    transform: translateY(100%);
+    align-self: center;
+}
+
 .orderBtn{
     width: 100%;
     height: 55px;
@@ -97,5 +102,22 @@
         background-color: darken(#9DD558, 4%);
     }
 
+    &:disabled{
+        background-color: #5C5C5C;
+        animation: button-loading 3s infinite;
+    }
+
+}
+
+@keyframes button-loading {
+    0%{
+        opacity: 0.6;
+    }
+    50%{
+        opacity: 0.4;
+    }
+    100%{
+        opacity: 0.6;
+    }
 }
 
