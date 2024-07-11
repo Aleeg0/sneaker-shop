@@ -1,5 +1,5 @@
 import React, {createContext} from "react";
-import Sneaker from "../Models/Sneaker";
+import {Sneaker} from "../Models/Sneaker";
 
 export interface IAppContext{
     sneakers: Sneaker[],
