@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {Sneaker} from "../../Models/Sneaker";
 import SneakerCard from "../SneakerCard";
-import styles from "./order.module.scss"
+import styles from "./_order.module.scss"
 
 interface OrderProps {
   id: number,

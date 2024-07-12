@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {ReactComponent as RemoveBtn} from "../../assets/cartRemoveBtn.svg";
 import {Sneaker} from "../../Models/Sneaker";
-import styles from "./cartItem.module.scss"
+import styles from "./_cartItem.module.scss"
 
 interface CartItemProps {
     sneaker: Sneaker,

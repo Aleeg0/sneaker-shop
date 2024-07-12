@@ -5,7 +5,7 @@ import {ReactComponent as ProfileLogo} from '../../assets/profile.svg';
 import logo from "../../assets/logo.svg";
 import {Link} from "react-router-dom";
 import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
-import styles from "./header.module.scss"
+import styles from "./_header.module.scss"
 
 const Header = () => {
     const {setIsCartOpened, total} = useCartSneakers();

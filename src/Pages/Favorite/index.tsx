@@ -5,7 +5,7 @@ import {Outlet, useNavigate} from "react-router-dom";
 import {ReactComponent as GoBack} from "../../assets/goBack.svg";
 import SneakerCard from "../../Components/SneakerCard";
 import {useFavoriteSneakers} from "../../Hooks/Favorite/useFavoriteSneakers";
-import InfoCard from "../../Components/InfoCard/infoCard";
+import Index from "../../Components/InfoCard";
 import styles from "../_pages.module.scss"
 
 const Favorite = () => {
@@ -40,7 +40,7 @@ const Favorite = () => {
                   onFavoriteAction={onFavoriteAction}
                 />)
               :
-                <InfoCard
+                <Index
                   title={"No favorites :("}
                   description={"You didn't add anything to your favorites"}
                   imgName={"noFavorite.svg"}

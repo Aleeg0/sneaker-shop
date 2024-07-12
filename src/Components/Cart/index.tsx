@@ -3,8 +3,8 @@ import CartItem from "../CartItem";
 import {ReactComponent as OrderArrow} from "../../assets/orderArrow.svg";
 import {useNavigate} from "react-router-dom";
 import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
-import InfoCard from "../InfoCard/infoCard";
-import styles from "./cart.module.scss"
+import Index from "../InfoCard";
+import styles from "./_cart.module.scss"
 import axios from "axios";
 
 const Cart = () => {
@@ -91,7 +91,7 @@ const Cart = () => {
           :
           <div className={cartSneakers.length > 0 ? "": styles.emptyCart}>
             {isOrderComplete ?
-              <InfoCard
+              <Index
                 title={"The order has been placed!"}
                 description={`Your order №${orderId} will be delivered by courier soon`}
                 imgName={"orderSuccessful.svg"}
@@ -99,7 +99,7 @@ const Cart = () => {
                 onButtonClick={onCloseCart}
               />
               :
-              <InfoCard
+              <Index
                 title={"Cart is Empty"}
                 description={"Add at least one pair of sneakers to place an order."}
                 imgName={"cartEmpty.svg"}
