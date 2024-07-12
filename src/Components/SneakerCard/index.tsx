@@ -9,16 +9,16 @@ interface SneakerCardProps {
   sneaker: Sneaker,
   onCartAction?: (sneaker: Sneaker) => void,
   onFavoriteAction?: (sneaker: Sneaker) => void,
-  isAdded: boolean,
-  isFavorite: boolean
+  isAdded?: boolean,
+  isFavorite?: boolean
 }
 
 const SneakerCard: FC<SneakerCardProps> = ({
    sneaker,
    onCartAction = null,
    onFavoriteAction = null,
-   isAdded,
-   isFavorite
+   isAdded = false,
+   isFavorite= false
 }) => {
 
   const onClickCartAction = () => {
