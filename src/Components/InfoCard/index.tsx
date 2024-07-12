@@ -10,7 +10,7 @@ interface InfoCardProps {
   onButtonClick: () => void
 }
 
-const Index: FC<InfoCardProps> = ({
+const InfoCard: FC<InfoCardProps> = ({
   title,
   description,
   imgName,
@@ -33,4 +33,4 @@ const Index: FC<InfoCardProps> = ({
   );
 };
 
-export default Index;
+export default InfoCard;

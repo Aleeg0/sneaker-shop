@@ -4,7 +4,7 @@ import axios from "axios";
 import {Route, Routes} from "react-router-dom";
 import Home from "./Pages/Home";
 import Favorite from "./Pages/Favorite";
-import Index from "./Pages/Profile";
+import Profile from "./Pages/Profile";
 import {Sneaker} from "./Models/Sneaker";
 import {AppContext} from "./Hooks/AppContext";
 import Cart from "./Components/Cart";
@@ -101,7 +101,7 @@ function App() {
           <Route path="favorites" element={<Favorite/>}>
             <Route path="cart" element={<Cart/>}/>
           </Route>
-          <Route path="profile" element={<Index/>}>
+          <Route path="profile" element={<Profile/>}>
             <Route path="cart" element={<Cart/>}/>
           </Route>
         </Routes>
