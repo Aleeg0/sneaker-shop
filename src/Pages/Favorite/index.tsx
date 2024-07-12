@@ -7,10 +7,12 @@ import SneakerCard from "../../Components/SneakerCard";
 import {useFavoriteSneakers} from "../../Hooks/Favorite/useFavoriteSneakers";
 import InfoCard from "../../Components/InfoCard";
 import styles from "../_pages.module.scss"
+import {useLoading} from "../../Hooks/useLoading";
 
 const Favorite = () => {
   const {cartSneakers, onCartAction} = useCartSneakers();
   const {favoriteSneakers,onFavoriteAction} = useFavoriteSneakers();
+  const {isLoading} = useLoading();
   const navigate = useNavigate();
 
   const onCloseFavorite = () => {
@@ -38,6 +40,7 @@ const Favorite = () => {
                   isFavorite={favoriteSneakers.some(s => s.sneakerId === sneaker.sneakerId)}
                   onCartAction={onCartAction}
                   onFavoriteAction={onFavoriteAction}
+                  isLoading={isLoading}
                 />)
               :
                 <InfoCard

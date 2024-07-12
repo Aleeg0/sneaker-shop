@@ -8,12 +8,14 @@ import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
 import {useFavoriteSneakers} from "../../Hooks/Favorite/useFavoriteSneakers";
 import {Outlet} from "react-router-dom";
 import styles from "../_pages.module.scss"
-
+import {useLoading} from "../../Hooks/useLoading";
 
 const Home = () => {
   const {sneakers, setSneakers} = useSneakers();
   const {cartSneakers,onCartAction} = useCartSneakers();
   const {favoriteSneakers,onFavoriteAction} = useFavoriteSneakers();
+  const {isLoading} = useLoading();
+
   const [searchValue,setSearchValue] = React.useState<string>("")
 
 
@@ -57,6 +59,7 @@ const Home = () => {
             <SneakerCard
               key={index}
               sneaker={sneaker}
+              isLoading={isLoading}
               isAdded={cartSneakers.some(s => s.sneakerId === sneaker.sneakerId)}
               isFavorite={favoriteSneakers.some(s => s.sneakerId === sneaker.sneakerId)}
               onCartAction={onCartAction}
