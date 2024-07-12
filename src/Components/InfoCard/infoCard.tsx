@@ -1,7 +1,5 @@
 import React, {FC} from 'react';
 import {ReactComponent as ArrowImg} from '../../assets/orderArrow.svg';
-import {useNavigate} from "react-router-dom";
-import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
 import styles from "./infoCard.module.scss"
 
 interface InfoCardProps {
