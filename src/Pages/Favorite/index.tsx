@@ -22,7 +22,7 @@ const Favorite = () => {
     return (
       <>
         <Outlet/>
-        <Header/>
+        <Header curPage={2}/>
         <main>
           <div className={styles.contentInfo}>
             <button onClick={() => navigate(-1)}>

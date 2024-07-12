@@ -32,7 +32,7 @@ const Profile = () => {
   return (
     <>
       <Outlet/>
-      <Header/>
+      <Header curPage={3}/>
       <main>
         <div className={`${styles.contentInfo}`}>
           <button onClick={() => navigate(-1)}>
