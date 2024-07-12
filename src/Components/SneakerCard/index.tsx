@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {ReactComponent as FavoriteBtn} from "../../assets/favoriteBtn.svg"
-import {ReactComponent as CartAddBtn} from "../../assets/mainAddBtn.svg";
-import {ReactComponent as CartRemoveBtn} from "../../assets/mainRemoveBtn.svg"
+import {ReactComponent as CartAddBtn} from "../../assets/cardAddBtn.svg";
+import {ReactComponent as CartRemoveBtn} from "../../assets/cardRemoveBtn.svg"
 import {Sneaker} from "../../Models/Sneaker";
 import styles from "./_sneakerCard.module.scss";
 
