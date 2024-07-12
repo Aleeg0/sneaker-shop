@@ -1,0 +1,24 @@
+.order{
+    display: block;
+
+    h2{
+        position: relative;
+        left: 30px
+    }
+}
+
+.sneakers{
+    display: flex;
+    flex-flow: row nowrap;
+    column-gap: 20px;
+    overflow: hidden;
+    padding: 30px;
+
+    // hide scroll bar
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+}
