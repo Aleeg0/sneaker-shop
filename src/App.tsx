@@ -8,7 +8,6 @@ import Profile from "./Pages/Profile";
 import {Sneaker} from "./Models/Sneaker";
 import {AppContext} from "./Hooks/AppContext";
 import Cart from "./Components/Cart";
-import favorite from "./Pages/Favorite";
 
 function App() {
   // all sneakers stats
