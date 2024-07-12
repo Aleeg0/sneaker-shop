@@ -6,9 +6,11 @@ import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
 import InfoCard from "../InfoCard";
 import styles from "./_cart.module.scss"
 import axios from "axios";
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 const Cart = () => {
   const navigate = useNavigate();
+  const [listRef] = useAutoAnimate();
   const {cartSneakers,setCartSneakers, onCartAction, setIsCartOpened, isCartOpened,total} = useCartSneakers();
   const [isOrderComplete, setIsOrderComplete] = useState(false);
   const [orderId, setOrderId] = useState<number|null>(null);
@@ -41,7 +43,6 @@ const Cart = () => {
     setIsLoading(false);
   }
 
-
   return (
     <div className={`${styles.overlay} ${isCartOpened ? styles.open : ''}`}>
       <div
@@ -57,36 +58,34 @@ const Cart = () => {
         <h2>Cart</h2>
         {cartSneakers.length > 0 ?
           <>
-            <div className={styles.cartItems}>
+            <ul ref={listRef} className={styles.cartItems}>
               {cartSneakers.map((sneaker, index) =>
-                <CartItem
-                  key={index}
-                  sneaker={sneaker}
-                  onRemove={onCartAction}
-                />
+                <li key={sneaker.sneakerId}>
+                  <CartItem sneaker={sneaker} onRemove={onCartAction}/>
+                </li>
               )}
-          </div>
-          <div>
-            <ul>
-              <li>
-                <span>Total:</span>
-                <hr/>
-                <b>{total} USD</b>
-              </li>
-              <li>
-                <span>Tax 5%:</span>
-                <hr/>
-                <b>{(total * 0.05).toFixed(2)} USD</b>
-              </li>
             </ul>
-            <button
-              type="button"
-              disabled={isLoading}
-              className={styles.orderBtn}
-              onClick={onClickOrder}
-            >Place an order <OrderArrow/>
-            </button>
-          </div>
+            <div className={styles.cartInfo}>
+              <ul>
+                <li>
+                  <span>Total:</span>
+                  <hr/>
+                  <b>{total} USD</b>
+                </li>
+                <li>
+                  <span>Tax 5%:</span>
+                  <hr/>
+                  <b>{(total * 0.05).toFixed(2)} USD</b>
+                </li>
+              </ul>
+              <button
+                type="button"
+                disabled={isLoading}
+                className={styles.orderBtn}
+                onClick={onClickOrder}
+              >Place an order <OrderArrow/>
+              </button>
+            </div>
           </>
           :
           <div className={cartSneakers.length > 0 ? "": styles.emptyCart}>
