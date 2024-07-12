@@ -15,11 +15,8 @@
 
 
         svg{
-            rect{
+            rect, path{
                 transition: fill 0.3s ease-in-out;
-            }
-            path{
-                transition: all 0.3s ease-in-out;
             }
         }
 
