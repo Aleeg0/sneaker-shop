@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {ReactComponent as CartLogo} from '../../assets/cart.svg';
 import {ReactComponent as FavoriteLogo} from '../../assets/favorite.svg';
 import {ReactComponent as ProfileLogo} from '../../assets/profile.svg';
@@ -7,7 +7,11 @@ import {Link} from "react-router-dom";
 import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
 import styles from "./_header.module.scss"
 
-const Header = () => {
+interface HeaderProps {
+    curPage?: number
+}
+
+const Header: FC<HeaderProps> = ({curPage = 1}) => {
     const {setIsCartOpened, total} = useCartSneakers();
 
     return (
@@ -32,14 +36,14 @@ const Header = () => {
                     <li>
                         <Link to="/favorites">
                             <FavoriteLogo/>
-                            <p>Favorite</p>
+                            <p className={curPage === 2 ? styles.active : ""}>Favorite</p>
                         </Link>
 
                     </li>
                     <li>
                         <Link to="/profile">
                             <ProfileLogo/>
-                            <p>Profile</p>
+                            <p className={curPage === 3 ? styles.active : ""}>Profile</p>
                         </Link>
                     </li>
                 </ul>
