@@ -16,8 +16,10 @@ function App() {
   const [cartSneakers,setCartSneakers] = React.useState<Sneaker[]>([]);
   const [favoriteSneakers,setFavoriteSneakers] = React.useState<Sneaker[]>([]);
   const [isCartOpened, setIsCartOpened] = React.useState<boolean>(false);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     async function fetchingData () {
       try {
         const sneakers = await axios.get("https://0f8af2c588831550.mokky.dev/sneakers");
@@ -31,13 +33,12 @@ function App() {
         setSneakers(sneakers.data);
         setCartSneakers(cartSneakers.data);
         setFavoriteSneakers(favoriteSneakers.data);
-
       } catch (err){
         alert("Error getting data...");
         console.error(err);
       }
     }
-    fetchingData();
+    fetchingData().finally(() => setIsLoading(false));
   }, []);
 
   const onCartAction = async (sneaker: Sneaker) => {
@@ -92,7 +93,9 @@ function App() {
       onCartAction,
       onFavoriteAction,
       isCartOpened,
-      setIsCartOpened}}>
+      setIsCartOpened,
+      isLoading
+    }}>
       <div className="wrapper">
         <Routes>
           <Route path="/" element={<Home/>}>
