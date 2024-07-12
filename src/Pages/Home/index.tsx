@@ -7,6 +7,7 @@ import {useSneakers} from "../../Hooks/Sneakers/useSneakers";
 import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
 import {useFavoriteSneakers} from "../../Hooks/Favorite/useFavoriteSneakers";
 import {Outlet} from "react-router-dom";
+import styles from "../_pages.module.scss"
 
 
 const Home = () => {
@@ -39,9 +40,9 @@ const Home = () => {
       <Outlet/>
       <Header/>
       <main>
-        <div className="contentInfo">
+        <div className={`${styles.home} ${styles.contentInfo}`}>
           <h1>ALL Sneakers</h1>
-          <div className="searcher">
+          <div className={styles.searcher}>
             <FindLogo/>
             <input
               type="text"
@@ -51,7 +52,7 @@ const Home = () => {
             />
           </div>
         </div>
-        <div className="content">
+        <div className={styles.content}>
           {sneakers.map((sneaker,index) =>
             <SneakerCard
               key={index}

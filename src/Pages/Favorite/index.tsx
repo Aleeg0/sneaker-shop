@@ -6,7 +6,7 @@ import {ReactComponent as GoBack} from "../../assets/goBack.svg";
 import SneakerCard from "../../Components/SneakerCard";
 import {useFavoriteSneakers} from "../../Hooks/Favorite/useFavoriteSneakers";
 import InfoCard from "../../Components/InfoCard/infoCard";
-import styles from "./favorite.module.scss"
+import styles from "../_pages.module.scss"
 
 const Favorite = () => {
   const {cartSneakers, onCartAction} = useCartSneakers();

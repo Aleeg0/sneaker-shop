@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import Header from "../../Components/Header";
 import {Outlet, useNavigate} from "react-router-dom";
-import styles from "../Profile/_profile.module.scss";
+import styles from "../_pages.module.scss";
 import { ReactComponent as GoBack} from "../../assets/goBack.svg";
 import InfoCard from "../../Components/InfoCard/infoCard";
 import {IOrder} from "../../Models/IOrder";
@@ -34,13 +34,13 @@ const Profile = () => {
       <Outlet/>
       <Header/>
       <main>
-        <div className={styles.contentInfo}>
+        <div className={`${styles.contentInfo}`}>
           <button onClick={() => navigate(-1)}>
             <GoBack/>
           </button>
           <h1>Orders</h1>
         </div>
-        <div className={styles.content}>
+        <div className={`${styles.profile} ${styles.content}`}>
           {orders.length > 0 ?
             orders.map((order,index) =>
               <Order key={index} {...order}/>
