@@ -3,13 +3,13 @@ import Header from "../../Components/Header";
 import {Outlet, useNavigate} from "react-router-dom";
 import styles from "../_pages.module.scss";
 import { ReactComponent as GoBack} from "../../assets/goBack.svg";
-import InfoCard from "../../Components/InfoCard/infoCard";
+import Index from "../../Components/InfoCard";
 import {IOrder} from "../../Models/IOrder";
 import Order from "../../Components/Order"
 import axios from "axios";
 
 
-const Profile = () => {
+const Index = () => {
   const navigate = useNavigate();
   const [orders, setOrders] = React.useState<IOrder[]>([]);
 
@@ -46,7 +46,7 @@ const Profile = () => {
               <Order key={index} {...order}/>
             )
             :
-            <InfoCard
+            <Index
               title={"No favorites :("}
               description={"You didn't add anything to your favorites"}
               imgName={"noFavorite.svg"}
@@ -60,4 +60,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Index;

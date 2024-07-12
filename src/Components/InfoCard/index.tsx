@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {ReactComponent as ArrowImg} from '../../assets/orderArrow.svg';
-import styles from "./infoCard.module.scss"
+import styles from "./_infoCard.module.scss"
 
 interface InfoCardProps {
   title: string,
@@ -10,7 +10,7 @@ interface InfoCardProps {
   onButtonClick: () => void
 }
 
-const InfoCard: FC<InfoCardProps> = ({
+const Index: FC<InfoCardProps> = ({
   title,
   description,
   imgName,
@@ -33,4 +33,4 @@ const InfoCard: FC<InfoCardProps> = ({
   );
 };
 
-export default InfoCard;
+export default Index;
