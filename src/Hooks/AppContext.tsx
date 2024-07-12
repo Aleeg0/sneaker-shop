@@ -12,6 +12,7 @@ export interface IAppContext{
     //setFavoriteSneakers: (sneaker: Sneaker) =>  React.Dispatch<React.SetStateAction<Sneaker[]>>,
     onCartAction: (sneaker: Sneaker) => void,
     onFavoriteAction: (sneaker: Sneaker) => void,
+    isLoading: boolean
 }
 
 export const AppContext = createContext<IAppContext|null>(null);
