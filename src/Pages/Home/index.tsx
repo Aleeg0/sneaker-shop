@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect} from 'react';
 import Header from "../../Components/Header";
 import SneakerCard from "../../Components/SneakerCard";
 import {ReactComponent as FindLogo} from "../../assets/finder.svg";
