@@ -24,16 +24,8 @@ const SneakerCard: FC<SneakerCardProps> = ({
    isLoading = false,
 }) => {
 
-  const onClickCartAction = () => {
-    onCartAction!(sneaker);
-  }
-
-  const onClickFavoriteAction = () => {
-    onFavoriteAction!(sneaker)
-  }
-
   return (
-    <div className={styles.card}>
+    <div className={styles.card} >
       {isLoading ?
         <ContentLoader
           speed={2}
@@ -55,7 +47,7 @@ const SneakerCard: FC<SneakerCardProps> = ({
               <button
                   type="button"
                   className={`${styles.favorite} ${isFavorite && styles.active}`}
-                  onClick={onClickFavoriteAction}
+                  onClick={() => onFavoriteAction(sneaker)}
               >
                   <FavoriteBtn/>
               </button>
@@ -71,7 +63,7 @@ const SneakerCard: FC<SneakerCardProps> = ({
                 <button
                     type="button"
                     className={`${styles.cartAction} ${isAdded ? styles.removeBtn : styles.addBtn}`}
-                    onClick={onClickCartAction}
+                    onClick={() => onCartAction(sneaker)}
                 >
                   {isAdded ? <CartRemoveBtn/> : <CartAddBtn/>}
                 </button>
