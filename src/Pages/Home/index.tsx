@@ -9,6 +9,7 @@ import {useFavoriteSneakers} from "../../Hooks/Favorite/useFavoriteSneakers";
 import styles from "../_pages.module.scss"
 import {useLoading} from "../../Hooks/useLoading";
 import Cart from "../../Components/Cart";
+import {useAutoAnimate} from "@formkit/auto-animate/react";
 
 const Home = () => {
   const {sneakers, setSneakers} = useSneakers();
@@ -16,6 +17,7 @@ const Home = () => {
   const {favoriteSneakers,onFavoriteAction} = useFavoriteSneakers();
   const {isLoading} = useLoading();
   const [searchValue,setSearchValue] = React.useState<string>("")
+  const [sneakerRef] = useAutoAnimate({duration: 400, easing: "linear"});
 
 
   useEffect(() => {
@@ -53,7 +55,7 @@ const Home = () => {
             />
           </div>
         </div>
-        <div className={styles.content}>
+        <div className={styles.content} ref={sneakerRef}>
           {sneakers.map((sneaker,index) =>
             <SneakerCard
               key={index}
