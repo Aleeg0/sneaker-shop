@@ -28,10 +28,8 @@ const Header: FC<HeaderProps> = ({curPage = 1}) => {
                 </Link>
                 <ul>
                     <li onClick={() => setIsCartOpened(true)}>
-                        <Link to="cart">
-                            <CartLogo/>
-                            <p>{total} USD</p>
-                        </Link>
+                        <CartLogo/>
+                        <p>{total} USD</p>
                     </li>
                     <li>
                         <Link to="/favorites">

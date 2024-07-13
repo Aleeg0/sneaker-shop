@@ -7,7 +7,6 @@ import Favorite from "./Pages/Favorite";
 import Profile from "./Pages/Profile";
 import {Sneaker} from "./Models/Sneaker";
 import {AppContext} from "./Hooks/AppContext";
-import Cart from "./Components/Cart";
 
 function App() {
   // all sneakers stats
@@ -16,8 +15,6 @@ function App() {
   const [favoriteSneakers,setFavoriteSneakers] = React.useState<Sneaker[]>([]);
   const [isCartOpened, setIsCartOpened] = React.useState<boolean>(false);
   const [isLoading, setIsLoading] = React.useState(true);
-
-  // TODO delete cart as route and beck animation for cart
 
   useEffect(() => {
     setIsLoading(true);

@@ -6,16 +6,15 @@ import axios from "axios";
 import {useSneakers} from "../../Hooks/Sneakers/useSneakers";
 import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
 import {useFavoriteSneakers} from "../../Hooks/Favorite/useFavoriteSneakers";
-import {Outlet} from "react-router-dom";
 import styles from "../_pages.module.scss"
 import {useLoading} from "../../Hooks/useLoading";
+import Cart from "../../Components/Cart";
 
 const Home = () => {
   const {sneakers, setSneakers} = useSneakers();
   const {cartSneakers,onCartAction} = useCartSneakers();
   const {favoriteSneakers,onFavoriteAction} = useFavoriteSneakers();
   const {isLoading} = useLoading();
-
   const [searchValue,setSearchValue] = React.useState<string>("")
 
 
@@ -39,7 +38,7 @@ const Home = () => {
 
   return (
     <>
-      <Outlet/>
+      <Cart/>
       <Header/>
       <main>
         <div className={`${styles.home} ${styles.contentInfo}`}>
