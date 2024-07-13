@@ -7,12 +7,14 @@ import Favorite from "./Pages/Favorite";
 import Profile from "./Pages/Profile";
 import {ISneaker} from "./Models/ISneaker";
 import {AppContext} from "./Hooks/AppContext";
+import {IOrder} from "./Models/IOrder";
 
 function App() {
   // all sneakers stats
   const [sneakers,setSneakers] = React.useState<ISneaker[]>([]);
   const [cartSneakers,setCartSneakers] = React.useState<ISneaker[]>([]);
   const [favoriteSneakers,setFavoriteSneakers] = React.useState<ISneaker[]>([]);
+  const [orders, setOrders] = React.useState<IOrder[]>([]);
   const [isCartOpened, setIsCartOpened] = React.useState<boolean>(false);
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -23,14 +25,17 @@ function App() {
         const sneakers = await axios.get("https://0f8af2c588831550.mokky.dev/sneakers");
         const cartSneakers = await axios.get("https://0f8af2c588831550.mokky.dev/cart");
         const favoriteSneakers = await axios.get("https://0f8af2c588831550.mokky.dev/favorites");
+        const orders = await axios.get("https://0f8af2c588831550.mokky.dev/orders");
 
         console.log(sneakers.data);
         console.log(cartSneakers.data);
         console.log(favoriteSneakers.data);
+        console.log(orders.data);
 
         setSneakers(sneakers.data);
         setCartSneakers(cartSneakers.data);
         setFavoriteSneakers(favoriteSneakers.data);
+        setOrders(orders.data);
       } catch (err){
         alert("Error getting data...");
         console.error(err);
@@ -87,11 +92,12 @@ function App() {
       setSneakers,
       cartSneakers,
       setCartSneakers,
-      favoriteSneakers,
       onCartAction,
-      onFavoriteAction,
       isCartOpened,
       setIsCartOpened,
+      favoriteSneakers,
+      onFavoriteAction,
+      orders,
       isLoading
     }}>
       <div className="wrapper">
