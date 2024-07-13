@@ -4,7 +4,7 @@ import {ReactComponent as FavoriteLogo} from '../../assets/favorite.svg';
 import {ReactComponent as ProfileLogo} from '../../assets/profile.svg';
 import logo from "../../assets/logo.svg";
 import {Link} from "react-router-dom";
-import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
+import {useCartSneakers} from "../../Hooks/useCartSneakers";
 import styles from "./_header.module.scss"
 
 interface HeaderProps {

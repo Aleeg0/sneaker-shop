@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from "../../Components/Header";
-import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
+import {useCartSneakers} from "../../Hooks/useCartSneakers";
 import {Link} from "react-router-dom";
 import {ReactComponent as GoBack} from "../../assets/goBack.svg";
 import SneakerCard from "../../Components/SneakerCard";
-import {useFavoriteSneakers} from "../../Hooks/Favorite/useFavoriteSneakers";
+import {useFavoriteSneakers} from "../../Hooks/useFavoriteSneakers";
 import InfoCard from "../../Components/InfoCard";
 import styles from "../_pages.module.scss"
 import {useLoading} from "../../Hooks/useLoading";

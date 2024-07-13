@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import CartItem from "../CartItem";
 import {ReactComponent as OrderArrow} from "../../assets/orderArrow.svg";
-import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
+import {useCartSneakers} from "../../Hooks/useCartSneakers";
 import InfoCard from "../InfoCard";
 import styles from "./_cart.module.scss"
 import axios from "axios";

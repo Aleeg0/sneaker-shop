@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {AppContext, IAppContext} from "../AppContext";
+import {AppContext, IAppContext} from "./AppContext";
 
 export const useSneakers = () => {
     const state = useContext<IAppContext|null>(AppContext);

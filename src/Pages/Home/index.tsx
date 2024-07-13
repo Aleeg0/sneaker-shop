@@ -3,9 +3,9 @@ import Header from "../../Components/Header";
 import SneakerCard from "../../Components/SneakerCard";
 import {ReactComponent as FindLogo} from "../../assets/finder.svg";
 import axios from "axios";
-import {useSneakers} from "../../Hooks/Sneakers/useSneakers";
-import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
-import {useFavoriteSneakers} from "../../Hooks/Favorite/useFavoriteSneakers";
+import {useSneakers} from "../../Hooks/useSneakers";
+import {useCartSneakers} from "../../Hooks/useCartSneakers";
+import {useFavoriteSneakers} from "../../Hooks/useFavoriteSneakers";
 import styles from "../_pages.module.scss"
 import {useLoading} from "../../Hooks/useLoading";
 import Cart from "../../Components/Cart";
