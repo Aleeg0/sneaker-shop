@@ -54,7 +54,7 @@
     justify-content: space-between;
     margin-bottom: 40px;
 
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
         flex-direction: column;
         row-gap: 20px;
     }
@@ -102,7 +102,37 @@
             }
         }
     }
+
+    .infoTools{
+        display: flex;
+        align-items: center;
+        column-gap: 40px;
+
+        @media (max-width: 800px) {
+            row-gap: 20px;
+            flex-direction: column-reverse;
+        }
+
+        select{
+
+            font-size: 14px;
+            width: 180px;
+            padding: 4px 0 6px 8px;
+            border: 1px solid #F3F3F3;
+            border-radius: 10px;
+
+            &:hover{
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            }
+
+            &:focus{
+                box-shadow: 0 14px 30px rgba(0, 0, 0, 0.05);
+            }
+
+        }
+    }
 }
+
 
 // profile page
 .profile.content{

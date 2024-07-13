@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import Header from "../../Components/Header";
 import SneakerCard from "../../Components/SneakerCard";
 import {ReactComponent as FindLogo} from "../../assets/finder.svg";
@@ -17,17 +17,18 @@ const Home = () => {
   const {favoriteSneakers,onFavoriteAction} = useFavoriteSneakers();
   const {isLoading} = useLoading();
   const [searchValue,setSearchValue] = React.useState<string>("")
-  const [sneakerRef] = useAutoAnimate({duration: 400, easing: "linear"});
-
+  const [filterValue,setFilterValue] = React.useState<string>("title")
+  const [sneakerRef] = useAutoAnimate({duration: 400});
 
   useEffect(() => {
     async function Search() {
-      let searchParam = "";
+      const fetchURL = new URL("https://0f8af2c588831550.mokky.dev/sneakers");
       if (searchValue) {
-        searchParam = `?name=*${searchValue}*`
+        fetchURL.searchParams.append("name", `*${searchValue}*`);
       }
+      fetchURL.searchParams.append("sortBy", filterValue);
       try {
-        const sneakers = await axios.get(`https://0f8af2c588831550.mokky.dev/sneakers` + searchParam)
+        const sneakers = await axios.get(fetchURL.toString())
         setSneakers(sneakers.data);
       }
       catch (err) {
@@ -36,7 +37,9 @@ const Home = () => {
       }
     }
     Search();
-  }, [searchValue]);
+  }, [searchValue,filterValue]);
+
+
 
   return (
     <>
@@ -45,14 +48,24 @@ const Home = () => {
       <main>
         <div className={`${styles.home} ${styles.contentInfo}`}>
           <h1>ALL Sneakers</h1>
-          <div className={styles.searcher}>
-            <FindLogo/>
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchValue}
-              onChange={(event) => setSearchValue(event.target.value)}
-            />
+          <div className={styles.infoTools}>
+            <select onChange={(event) => {
+              console.log(event.target.value)
+              setFilterValue(event.target.value);
+            }}>
+              <option value={"title"}>By name</option>
+              <option value={"price"}>By price (cheap)</option>
+              <option value={"-price"}>By price (expensive)</option>
+            </select>
+            <div className={styles.searcher}>
+              <FindLogo/>
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchValue}
+                onChange={(event) => setSearchValue(event.target.value)}
+              />
+            </div>
           </div>
         </div>
         <div className={styles.content} ref={sneakerRef}>
