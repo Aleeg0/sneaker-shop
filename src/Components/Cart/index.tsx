@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import CartItem from "../CartItem";
 import {ReactComponent as OrderArrow} from "../../assets/orderArrow.svg";
-import {useNavigate} from "react-router-dom";
 import {useCartSneakers} from "../../Hooks/Cart/useCartSneakers";
 import InfoCard from "../InfoCard";
 import styles from "./_cart.module.scss"
@@ -57,7 +56,7 @@ const Cart = () => {
         {cartSneakers.length > 0 ?
           <>
             <ul ref={listRef} className={styles.cartItems}>
-              {cartSneakers.map((sneaker, index) =>
+              {cartSneakers.map((sneaker) =>
                 <li key={sneaker.sneakerId}>
                   <CartItem sneaker={sneaker} onRemove={onCartAction}/>
                 </li>

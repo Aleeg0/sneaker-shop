@@ -9,14 +9,6 @@ interface OrderProps {
 }
 
 const Order: FC<OrderProps> = ({id,items}) => {
-  const s: ISneaker = {
-    id: 1,
-    sneakerId: 1,
-    price: 100,
-    name: 'Мужские Кроссовки Under Armour Curry 8',
-    imgURL: "./sneakers/sneaker-1.png"
-  }
-  
   return (
     <div className={styles.order}>
       <h2>Order №{id}</h2>
