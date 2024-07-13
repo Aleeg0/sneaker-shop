@@ -27,10 +27,12 @@ function App() {
         const favoriteSneakers = await axios.get("https://0f8af2c588831550.mokky.dev/favorites");
         const orders = await axios.get("https://0f8af2c588831550.mokky.dev/orders");
 
+        /* #if debug => uncomment
         console.log(sneakers.data);
         console.log(cartSneakers.data);
         console.log(favoriteSneakers.data);
         console.log(orders.data);
+         */
 
         setSneakers(sneakers.data);
         setCartSneakers(cartSneakers.data);
