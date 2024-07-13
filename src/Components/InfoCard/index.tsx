@@ -1,13 +1,15 @@
 import React, {FC} from 'react';
 import {ReactComponent as ArrowImg} from '../../assets/orderArrow.svg';
 import styles from "./_infoCard.module.scss"
+import {Link} from "react-router-dom";
 
 interface InfoCardProps {
   title: string,
   description: string,
   imgName: string,
   altText: string,
-  onButtonClick: () => void
+  onButtonClick?: () => void
+  to?: string,
 }
 
 const InfoCard: FC<InfoCardProps> = ({
@@ -15,7 +17,8 @@ const InfoCard: FC<InfoCardProps> = ({
   description,
   imgName,
   altText,
-  onButtonClick
+  onButtonClick = null,
+  to = "",
 }) => {
 
   return (
@@ -23,14 +26,23 @@ const InfoCard: FC<InfoCardProps> = ({
       <img src={process.env.PUBLIC_URL + `/images/${imgName}`} alt={altText} />
       <h2>{title}</h2>
       <p>{description}</p>
-      <button
-        onClick={onButtonClick}
-      >
-        <ArrowImg/>
-        Go back
-      </button>
-    </div>
-  );
-};
+        {onButtonClick ?
+          <button
+            onClick={onButtonClick}
+          >
+            <ArrowImg/>
+            Go back
+          </button>
+          :
+          <Link to={to}>
+            <button>
+              <ArrowImg/>
+              Go back
+            </button>
+          </Link>
+        }
+        </div>
+        );
+      };
 
 export default InfoCard;

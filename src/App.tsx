@@ -17,6 +17,8 @@ function App() {
   const [isCartOpened, setIsCartOpened] = React.useState<boolean>(false);
   const [isLoading, setIsLoading] = React.useState(true);
 
+  // TODO delete cart as route and beck animation for cart
+
   useEffect(() => {
     setIsLoading(true);
     async function fetchingData () {
@@ -97,15 +99,9 @@ function App() {
     }}>
       <div className="wrapper">
         <Routes>
-          <Route path="/" element={<Home/>}>
-            <Route path="cart" element={<Cart/>}/>
-          </Route>
-          <Route path="favorites" element={<Favorite/>}>
-            <Route path="cart" element={<Cart/>}/>
-          </Route>
-          <Route path="profile" element={<Profile/>}>
-            <Route path="cart" element={<Cart/>}/>
-          </Route>
+          <Route path="/" element={<Home/>}/>
+          <Route path="favorites" element={<Favorite/>}/>
+          <Route path="profile" element={<Profile/>}/>
         </Routes>
       </div>
     </AppContext.Provider>
