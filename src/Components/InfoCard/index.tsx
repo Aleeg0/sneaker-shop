@@ -25,7 +25,7 @@ const InfoCard: FC<InfoCardProps> = ({
     <div className={styles.infoCard}>
       <img src={process.env.PUBLIC_URL + `/images/${imgName}`} alt={altText} />
       <h2>{title}</h2>
-      <p>{description}</p>
+      <pre>{description}</pre>
         {onButtonClick ?
           <button
             onClick={onButtonClick}
