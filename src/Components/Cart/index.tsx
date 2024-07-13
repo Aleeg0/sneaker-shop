@@ -8,7 +8,7 @@ import axios from "axios";
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 const Cart = () => {
-  const [listRef] = useAutoAnimate();
+  const [listRef] = useAutoAnimate({duration: 450});
   const {cartSneakers,setCartSneakers, onCartAction, setIsCartOpened, isCartOpened,total} = useCartSneakers();
   const [isOrderComplete, setIsOrderComplete] = useState(false);
   const [orderId, setOrderId] = useState<number|null>(null);
