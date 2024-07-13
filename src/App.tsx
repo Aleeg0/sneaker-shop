@@ -5,14 +5,14 @@ import {Route, Routes} from "react-router-dom";
 import Home from "./Pages/Home";
 import Favorite from "./Pages/Favorite";
 import Profile from "./Pages/Profile";
-import {Sneaker} from "./Models/Sneaker";
+import {ISneaker} from "./Models/ISneaker";
 import {AppContext} from "./Hooks/AppContext";
 
 function App() {
   // all sneakers stats
-  const [sneakers,setSneakers] = React.useState<Sneaker[]>([]);
-  const [cartSneakers,setCartSneakers] = React.useState<Sneaker[]>([]);
-  const [favoriteSneakers,setFavoriteSneakers] = React.useState<Sneaker[]>([]);
+  const [sneakers,setSneakers] = React.useState<ISneaker[]>([]);
+  const [cartSneakers,setCartSneakers] = React.useState<ISneaker[]>([]);
+  const [favoriteSneakers,setFavoriteSneakers] = React.useState<ISneaker[]>([]);
   const [isCartOpened, setIsCartOpened] = React.useState<boolean>(false);
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -39,7 +39,7 @@ function App() {
     fetchingData().finally(() => setIsLoading(false));
   }, []);
 
-  const onCartAction = async (sneaker: Sneaker) => {
+  const onCartAction = async (sneaker: ISneaker) => {
     try {
       // if we need to remove
       if (cartSneakers.some(curSneaker => curSneaker.sneakerId === sneaker.sneakerId)) {
@@ -60,7 +60,7 @@ function App() {
     }
   }
 
-  const onFavoriteAction = async (sneaker: Sneaker) => {
+  const onFavoriteAction = async (sneaker: ISneaker) => {
     try {
       // if we need to remove
       if (favoriteSneakers.some(curSneaker => curSneaker.sneakerId === sneaker.sneakerId)) {

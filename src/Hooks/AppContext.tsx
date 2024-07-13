@@ -1,17 +1,17 @@
 import React, {createContext} from "react";
-import {Sneaker} from "../Models/Sneaker";
+import {ISneaker} from "../Models/ISneaker";
 
 export interface IAppContext{
-    sneakers: Sneaker[],
-    setSneakers: (sneaker: React.SetStateAction<Sneaker[]>) => void,
-    cartSneakers: Sneaker[],
-    setCartSneakers: (sneaker: React.SetStateAction<Sneaker[]>) => void,
+    sneakers: ISneaker[],
+    setSneakers: (sneaker: React.SetStateAction<ISneaker[]>) => void,
+    cartSneakers: ISneaker[],
+    setCartSneakers: (sneaker: React.SetStateAction<ISneaker[]>) => void,
     isCartOpened: boolean,
     setIsCartOpened: (isOpened: boolean) => void,
-    favoriteSneakers: Sneaker[],
-    //setFavoriteSneakers: (sneaker: Sneaker) =>  React.Dispatch<React.SetStateAction<Sneaker[]>>,
-    onCartAction: (sneaker: Sneaker) => void,
-    onFavoriteAction: (sneaker: Sneaker) => void,
+    favoriteSneakers: ISneaker[],
+    //setFavoriteSneakers: (sneaker: ISneaker) =>  React.Dispatch<React.SetStateAction<ISneaker[]>>,
+    onCartAction: (sneaker: ISneaker) => void,
+    onFavoriteAction: (sneaker: ISneaker) => void,
     isLoading: boolean
 }
 

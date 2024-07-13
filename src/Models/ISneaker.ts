@@ -1,4 +1,4 @@
-export interface Sneaker {
+export interface ISneaker {
     id: number,
     sneakerId: number,
     name: string,

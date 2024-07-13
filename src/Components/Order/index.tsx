@@ -1,15 +1,15 @@
 import React, {FC} from 'react';
-import {Sneaker} from "../../Models/Sneaker";
+import {ISneaker} from "../../Models/ISneaker";
 import SneakerCard from "../SneakerCard";
 import styles from "./_order.module.scss"
 
 interface OrderProps {
   id: number,
-  items: Sneaker[]
+  items: ISneaker[]
 }
 
 const Order: FC<OrderProps> = ({id,items}) => {
-  const s: Sneaker = {
+  const s: ISneaker = {
     id: 1,
     sneakerId: 1,
     price: 100,

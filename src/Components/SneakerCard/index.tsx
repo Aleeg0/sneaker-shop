@@ -2,15 +2,15 @@ import React, {FC} from 'react';
 import {ReactComponent as FavoriteBtn} from "../../assets/favoriteBtn.svg"
 import {ReactComponent as CartAddBtn} from "../../assets/cardAddBtn.svg";
 import {ReactComponent as CartRemoveBtn} from "../../assets/cardRemoveBtn.svg"
-import {Sneaker} from "../../Models/Sneaker";
+import {ISneaker} from "../../Models/ISneaker";
 import styles from "./_sneakerCard.module.scss";
 import ContentLoader from "react-content-loader";
 
 interface SneakerCardProps {
-  sneaker: Sneaker,
+  sneaker: ISneaker,
   isLoading?: boolean,
-  onCartAction?: (sneaker: Sneaker) => void,
-  onFavoriteAction?: (sneaker: Sneaker) => void,
+  onCartAction?: (sneaker: ISneaker) => void,
+  onFavoriteAction?: (sneaker: ISneaker) => void,
   isAdded?: boolean,
   isFavorite?: boolean,
 }
