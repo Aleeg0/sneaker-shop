@@ -89,7 +89,7 @@ const Cart = () => {
             {isOrderComplete ?
               <InfoCard
                 title={"The order has been placed!"}
-                description={`Your order №${orderId} will be delivered by courier soon`}
+                description={`Your order №${orderId}\nwill be delivered by courier soon`}
                 imgName={"orderSuccessful.svg"}
                 altText={"order Successful Img"}
                 onButtonClick={onCloseCart}
@@ -97,7 +97,7 @@ const Cart = () => {
               :
               <InfoCard
                 title={"Cart is Empty"}
-                description={"Add at least one pair of sneakers to place an order."}
+                description={"Add at least one pair of sneakers\n to place an order."}
                 imgName={"cartEmpty.svg"}
                 altText={"cartEmptyImg"}
                 onButtonClick={onCloseCart}
