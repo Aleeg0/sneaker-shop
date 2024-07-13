@@ -9,11 +9,13 @@ import InfoCard from "../../Components/InfoCard";
 import styles from "../_pages.module.scss"
 import {useLoading} from "../../Hooks/useLoading";
 import Cart from "../../Components/Cart";
+import {useAutoAnimate} from "@formkit/auto-animate/react";
 
 const Favorite = () => {
   const {cartSneakers, onCartAction} = useCartSneakers();
   const {favoriteSneakers,onFavoriteAction} = useFavoriteSneakers();
   const {isLoading} = useLoading();
+  const [sneakerAnim] = useAutoAnimate({duration: 400});
   return (
     <>
       <Cart/>
@@ -25,7 +27,7 @@ const Favorite = () => {
           </Link>
           <h1>Favorite</h1>
         </div>
-        <div className={`${styles.content} ${favoriteSneakers.length > 0 ? "" : styles.empty}`}>
+        <div ref={sneakerAnim} className={`${styles.content} ${favoriteSneakers.length > 0 ? "" : styles.empty}`}>
           {favoriteSneakers.length > 0 ?
             favoriteSneakers.map((sneaker, index) =>
               <SneakerCard
