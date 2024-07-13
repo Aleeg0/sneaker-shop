@@ -6,6 +6,7 @@ import InfoCard from "../InfoCard";
 import styles from "./_cart.module.scss"
 import axios from "axios";
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import {ReactComponent as CloseBtn} from "../../assets/goBack.svg";
 
 const Cart = () => {
   const [listRef] = useAutoAnimate({duration: 450});
@@ -55,6 +56,9 @@ const Cart = () => {
         <h2>Cart</h2>
         {cartSneakers.length > 0 ?
           <>
+            <button className={styles.closeCartBtn} onClick={onCloseCart}>
+              <CloseBtn/>
+            </button>
             <ul ref={listRef} className={styles.cartItems}>
               {cartSneakers.map((sneaker) =>
                 <li key={sneaker.sneakerId}>

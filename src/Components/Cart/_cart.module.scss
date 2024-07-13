@@ -38,6 +38,34 @@
     height: 100%;
 }
 
+.closeCartBtn{
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    transform: rotateY(180deg);
+
+    svg, rect, path,{
+        transition: all 0.3s ease-in-out;
+    }
+
+    &:hover{
+        opacity: 0.8;
+        path{
+            transform: translateX(-2px);
+            stroke: #FFFFFF;
+        }
+        rect{
+            fill: #FCB858;
+            stroke: #FCB858;
+        }
+    }
+}
+
 .cartItems{
     overflow-y: auto;
     overflow-x: hidden;
