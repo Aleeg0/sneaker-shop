@@ -1,35 +1,19 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Header from "../../Components/Header";
 import {Link} from "react-router-dom";
 import styles from "../_pages.module.scss";
 import { ReactComponent as GoBack} from "../../assets/goBack.svg";
 import InfoCard from "../../Components/InfoCard";
-import {IOrder} from "../../Models/IOrder";
 import Order from "../../Components/Order"
-import axios from "axios";
 import Cart from "../../Components/Cart";
+import {useOrders} from "../../Hooks/usuOrders";
+import {useLoading} from "../../Hooks/useLoading";
 
 
 const Profile = () => {
-  const [orders, setOrders] = React.useState<IOrder[]>([]);
-  const [isLoading, setIsLoading] = React.useState(true);
+  const {orders} = useOrders();
+  const {isLoading} = useLoading();
 
-  useEffect(() => {
-    setIsLoading(true);
-    const fetchingData = async () => {
-      try {
-        const {data} = await axios.get("https://0f8af2c588831550.mokky.dev/orders");
-        setOrders(data);
-        console.log("fetched")
-      } catch (err) {
-        alert("Could not get orders");
-        console.log(err);
-      }
-    }
-    fetchingData().finally(() => setIsLoading(false));
-  }, []);
-
-  console.log("render");
   return (
     <>
       <Cart/>
