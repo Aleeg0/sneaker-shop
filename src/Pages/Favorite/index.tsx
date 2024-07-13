@@ -43,7 +43,7 @@ const Favorite = () => {
                 description={"You didn't add anything to your favorites"}
                 imgName={"noFavorite.svg"}
                 altText={"sedImg"}
-                to={""}
+                to={"/"}
               />
           }
         </div>
