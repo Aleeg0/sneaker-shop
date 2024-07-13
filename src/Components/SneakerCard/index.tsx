@@ -52,7 +52,7 @@ const SneakerCard: FC<SneakerCardProps> = ({
                   <FavoriteBtn/>
               </button>
           }
-          <img src={sneaker.imgURL} alt="sneaker"/>
+          <img src={`${process.env.PUBLIC_URL}/${sneaker.imgURL}`} alt="sneaker"/>
           <p>{sneaker.name}</p>
           <div className="d-flex justify-between fa-center">
             <div className="d-flex fd-column">

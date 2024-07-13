@@ -11,7 +11,7 @@ interface CartItemProps {
 const CartItem: FC<CartItemProps> = ({sneaker, onRemove}) => {
     return (
         <div className={styles.cartItem}>
-            <img src={sneaker.imgURL} alt="cart Item"/>
+            <img src={`${process.env.PUBLIC_URL}/${sneaker.imgURL}`} alt="cart Item"/>
             <div>
                 <h3>{sneaker.name}</h3>
                 <b>{sneaker.price} USD</b>
