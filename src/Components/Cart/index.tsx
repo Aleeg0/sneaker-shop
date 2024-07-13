@@ -9,7 +9,6 @@ import axios from "axios";
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 const Cart = () => {
-  const navigate = useNavigate();
   const [listRef] = useAutoAnimate();
   const {cartSneakers,setCartSneakers, onCartAction, setIsCartOpened, isCartOpened,total} = useCartSneakers();
   const [isOrderComplete, setIsOrderComplete] = useState(false);
@@ -18,7 +17,6 @@ const Cart = () => {
 
   const onCloseCart = () => {
     setIsCartOpened(false);
-    navigate(-1);
   }
 
   const onClickOrder = async () => {
